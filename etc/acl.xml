@@ -14,8 +14,6 @@
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
                             <resource id="Magefan_FacebookPixel::facebook_pixel" title="Facebook Pixel" sortOrder="15" />
-                            <resource id="Facebook_BusinessExtension::system_config" title="Facebook Extension Configuration" sortOrder="16" />
-                            <resource id="Facebook_BusinessExtension::facebook" title="Facebook Extension Setup" sortOrder="15" />
                         </resource>
                     </resource>
                 </resource>
