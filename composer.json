@@ -2,14 +2,14 @@
     "name": "magefan/module-facebook-pixel",
     "description": "Implements Facebook Business Extension for Magento 2",
     "require": {
-        "facebook/facebook-for-magento2" : ">=1.4.2",
-        "magefan/module-community" : ">=2.1.4"
+        "facebook/facebook-for-magento2" : ">=1.4.3",
+        "magefan/module-community" : ">=2.1.6"
     },
     "suggest": {
         "facebook/facebook-for-magento2": "Install this module to activate Facebook Business Extension for Magento 2."
     },
     "type": "magento2-module",
-    "version": "2.0.0",
+    "version": "2.4.3",
     "autoload": {
         "files": [ "registration.php" ],
         "psr-4": {
