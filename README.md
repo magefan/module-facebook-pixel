@@ -85,7 +85,7 @@ https://magefan.com/contact
 ## License
 The code is licensed under GPL-1.0-or-later.
 
-## Other [Magento 2 Extensions](https://magefan.com/magento2-extensions) by Magefan
+## Other [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
   * [Magento 2 Blog Plus Extension](https://magefan.com/magento2-blog-extension/pricing)
   * [Magento 2 Blog Extra Extension](https://magefan.com/magento2-blog-extension/pricing)
   * [Magento 2 Multi Blog Extension](https://magefan.com/magento-2-multi-blog-extension)
