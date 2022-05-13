@@ -2,8 +2,9 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-facebook-pixel/downloads)](https://packagist.org/packages/magefan/module-facebook-pixel)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-facebook-pixel/v/stable)](https://packagist.org/packages/magefan/module-facebook-pixel)
 
-Enable Facebook Pixel on Magento 2 website
+Enable Facebook Pixel on Magento 2 website.
 
+<a href="https://www.comebackalive.in.ua/donate"><img width="830" height="208" src="https://cm.magefan.com/blog/support-ukraine.png"></a>
 
 <a href="https://magefan.com/magento-2-facebook-pixel-extension"><img width="190" height="70" src="https://magefan.com/media/wysiwyg/download-now_1.png"></a>
 
