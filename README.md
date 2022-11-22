@@ -153,3 +153,6 @@ The code is licensed under GPL-1.0-or-later.
   
   ### Shopware Extensions
   * [Shopware WebP Extension](https://magefan.com/shopware/extensions/webp)
+   
+  ### Shopify Apps
+  * [Shopify Login As Customer](https://apps.shopify.com/login-as-customer)
