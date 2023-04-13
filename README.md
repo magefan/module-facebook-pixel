@@ -156,3 +156,7 @@ The code is licensed under GPL-1.0-or-later.
    
   ### Shopify Apps
   * [Shopify Login As Customer](https://apps.shopify.com/login-as-customer)
+  * [Shopify Blog](https://magefan.com/shopify/apps/blog)
+  
+  ### Magento 2 Theme
+  * [Optimized Magento 2 Theme](https://magefan.com/optimized-magento-2-theme)
