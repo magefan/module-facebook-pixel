@@ -1,23 +1,53 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <!--
 /**
  * Copyright © Magefan (support@magefan.com). All rights reserved.
  * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="facebookpixel" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="mffacebookpixel" translate="label" sortOrder="10308020210" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Facebook Pixel</label>
             <tab>magefan</tab>
-            <resource>Magefan_FacebookPixel::facebook_pixel</resource>
+            <resource>Magefan_FacebookPixel::mffacebookpixel_config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
                 <attribute type="expanded">1</attribute>
                 <field id="version" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\Info</frontend_model>
+                </field>
+                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product Key</label>
+                    <frontend_model>Magefan\Community\Block\Adminhtml\System\Config\Form\ProductKeyField</frontend_model>
+                </field>
+                <field id="fb_pixel_id" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Pixel ID</label>
+                    <comment>Please get the Facebook Pixel ID from the Events Manager page.</comment>
+                </field>
+                <field id="events" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Events</label>
+                    <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\EventList</frontend_model>
+                </field>
+            </group>
+            <group id="attributes" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Attributes Mapping</label>
+                <field id="product" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product Identifier</label>
+                    <source_model>Magefan\FacebookPixel\Model\Config\Source\ProductAttribute</source_model>
+                </field>
+            </group>
+            <group id="customer_data" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GDPR/CCPA/LGPD (Customer Data Protection Regulation)</label>
+                <field id="protect" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Protect Customer Data</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\ProtectCustomerData</frontend_model>
                 </field>
             </group>
         </section>

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magefan\FacebookPixel\Api\InitiateCheckoutInterface" type="Magefan\FacebookPixel\Model\Pixel\InitiateCheckout" />
+    <preference for="Magefan\FacebookPixel\Api\PurchaseInterface" type="Magefan\FacebookPixel\Model\Pixel\Purchase" />
+    <preference for="Magefan\FacebookPixel\Api\ViewProductContentInterface" type="Magefan\FacebookPixel\Model\Pixel\ViewProductContent" />
+    <preference for="Magefan\FacebookPixel\Api\Cart\ContentInterface" type="Magefan\FacebookPixel\Model\Pixel\Cart\Content" />
+    <preference for="Magefan\FacebookPixel\Api\Order\ContentInterface" type="Magefan\FacebookPixel\Model\Pixel\Order\Content" />
+    <preference for="Magefan\FacebookPixel\Api\Product\ContentInterface" type="Magefan\FacebookPixel\Model\Pixel\Product\Content" />
+</config>

@@ -1,0 +1,72 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+/** @var \Magefan\FacebookPixel\Block\Pixel $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<!-- Meta Pixel Code -->
+<script>
+    !function(f,n){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];
+        f.mfFbq = 1;
+
+        fbq('init', '<?= $escaper->escapeHtml($block->getFbPixelId()) ?>');
+        fbq('track', 'PageView');
+
+        function mfLoadFbPixel() {
+            !function(f,b,e,v,n,t,s){
+                if (f.fbq && !f.mfFbq) return;
+                t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        }
+
+        <?php if ($block->isProtectCustomerDataEnabled()) { ?>
+            require(['jquery'], function ($) {
+                $(document).ready(function () {
+                    function getCookieValue(cookieName) {
+                        let name = cookieName + '=';
+                        let cookieSplit = document.cookie.split(';');
+
+                        for (let i = 0; i < cookieSplit.length; i++) {
+                            let a = cookieSplit[i];
+
+                            while (a.charAt(0) === ' ') {
+                                a = a.substring(1);
+                            }
+
+                            if (a.indexOf(name) === 0) {
+                                return a.substring(name.length, a.length);
+                            }
+                        }
+                        return '';
+                    }
+
+                    let cookie = getCookieValue(
+                        '<?= $escaper->escapeHtml(\Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE) ?>'
+                    );
+                    if (cookie) {
+                        cookie = JSON.parse(decodeURIComponent(cookie));
+                        if (cookie[<?= $escaper->escapeHtml($block->getWebsiteId()) ?>]) {
+                            mfLoadFbPixel();
+                        } else {
+                            let interval = setInterval(function () {
+                                clearInterval(interval);
+                                mfLoadFbPixel();
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+        <?php } else { ?>
+            mfLoadFbPixel();
+        <?php } ?>
+    }(window);
+</script>
+<!-- End Meta Pixel Code -->

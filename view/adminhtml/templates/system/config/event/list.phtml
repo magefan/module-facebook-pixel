@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+/** @var \Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\EventList $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<?php
+$events = [
+    'View Product (ViewContent)',
+    'View Checkout (InitiateCheckout)',
+    'Checkout Success Page (Purchase)'
+];
+$eventsPlus = [
+    'Add To Cart (AddToCart)',
+    'Add To Wishlist (AddToWishlist)',
+    'Payments Step on Checkout Page (AddPaymentInfo)'
+];
+?>
+<br/>
+<div>
+    <ul>
+        <li>
+            <?= $escaper->escapeHtml(implode('</li><li>', $events), ['li']) ?>
+        </li>
+    </ul>
+    <p <?php if (!$block->isPlusEnabled()) { ?>style="color: red"<?php } ?>>
+        <strong>
+            <?= $escaper->escapeHtml(
+                __(!$block->isPlusEnabled() ? 'Available in FB Pixel Plus Only' : 'FB Pixel Plus')
+            ) ?>
+            <?php if (!$block->isPlusEnabled()) { ?>
+                (<a href="https://magefan.com/magento-2-facebook-pixel/pricing" target="_blank">Read More</a>):
+            <?php } ?>
+        </strong>
+    </p>
+    <div <?php if (!$block->isPlusEnabled()) { ?>style="opacity: 0.7; color: red"<?php } ?>>
+        <ul>
+            <li>
+                <?= $escaper->escapeHtml(implode('</li><li>', $eventsPlus), ['li']) ?>
+            </li>
+        </ul>
+    </div>
+</div>

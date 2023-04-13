@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mffacebookpixel>
+            <general>
+                <enabled>0</enabled>
+                <mfmodule>FacebookPixel</mfmodule>
+                <mftype>1</mftype>
+                <fb_pixel_id/>
+            </general>
+            <attributes>
+                <product>sku</product>
+            </attributes>
+            <customer_data>
+                <protect>1</protect>
+            </customer_data>
+        </mffacebookpixel>
+    </default>
+</config>
