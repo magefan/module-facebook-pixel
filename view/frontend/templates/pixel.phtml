@@ -6,6 +6,12 @@
 /** @var \Magefan\FacebookPixel\Block\Pixel $block */
 /** @var \Magento\Framework\Escaper $escaper */
 ?>
+<?php
+if (!isset($escaper)) {
+    /* Compatability fix for old Magento versions */
+    $escaper = $block;
+}
+?>
 <!-- Meta Pixel Code -->
 <script>
     !function(f,n){
