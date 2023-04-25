@@ -88,4 +88,14 @@ class EventList extends Field
     {
         return (bool)$this->moduleManager->isEnabled('Magefan_FacebookPixelPlus');
     }
+
+    /**
+     * Retrieve true if FB Pixel Extra is enabled
+     *
+     * @return bool
+     */
+    public function isExtraEnabled()
+    {
+        return (bool)$this->moduleManager->isEnabled('Magefan_FacebookPixelExtra');
+    }
 }
