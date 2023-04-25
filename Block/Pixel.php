@@ -56,6 +56,16 @@ class Pixel extends Template
     }
 
     /**
+     * Retrieve true if speed optimization is enabled
+     *
+     * @return bool
+     */
+    public function isSpeedOptimizationEnabled(): bool
+    {
+        return (bool)$this->config->isSpeedOptimizationEnabled();
+    }
+
+    /**
      * Get current website ID
      *
      * @return int

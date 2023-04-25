@@ -24,7 +24,31 @@ if (!isset($escaper)) {
         fbq('init', '<?= $escaper->escapeHtml($block->getFbPixelId()) ?>');
         fbq('track', 'PageView');
 
+        var triedToLoadPixel = false;
+        <?php if ($block->isSpeedOptimizationEnabled()) { ?>
+            var actionDetected = false;
+            document.addEventListener('scroll', initMfFbPixel);
+            document.addEventListener('mousemove', initMfFbPixel);
+            document.addEventListener('touchstart', initMfFbPixel);
+            function initMfFbPixel()
+            {
+                if (actionDetected) return false;
+                document.removeEventListener('scroll', initMfFbPixel);
+                document.removeEventListener('mousemove', initMfFbPixel);
+                document.removeEventListener('touchstart', initMfFbPixel);
+                actionDetected = true;
+
+                if (triedToLoadPixel) {
+                    mfLoadFbPixel();
+                }
+            }
+        <?php } else { ?>
+            var actionDetected = true;
+        <?php } ?>
+
         function mfLoadFbPixel() {
+            triedToLoadPixel = true;
+            if (!actionDetected) return false;
             !function(f,b,e,v,n,t,s){
                 if (f.fbq && !f.mfFbq) return;
                 t=b.createElement(e);t.async=!0;

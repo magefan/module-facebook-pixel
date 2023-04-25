@@ -26,6 +26,11 @@ class Config
     public const XML_PATH_ATTRIBUTES_PRODUCT = 'mffacebookpixel/attributes/product';
 
     /**
+     * Speed optimization config
+     */
+    public const XML_PATH_SPEED_OPTIMIZATION_ENABLED = 'mffacebookpixel/page_speed_optimization/enabled';
+
+    /**
      * Customer data protection regulation config
      */
     public const XML_PATH_PROTECT_CUSTOMER_DATA = 'mffacebookpixel/customer_data/protect';
@@ -78,6 +83,17 @@ class Config
     public function getProductAttribute(string $storeId = null): string
     {
         return (string)$this->getConfig(self::XML_PATH_ATTRIBUTES_PRODUCT, $storeId);
+    }
+
+    /**
+     * Retrieve true if speed optimization is enabled
+     *
+     * @param string|null $storeId
+     * @return bool
+     */
+    public function isSpeedOptimizationEnabled(string $storeId = null): bool
+    {
+        return (bool)$this->getConfig(self::XML_PATH_SPEED_OPTIMIZATION_ENABLED, $storeId);
     }
 
     /**
