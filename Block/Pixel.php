@@ -73,7 +73,7 @@ class Pixel extends Template
      */
     protected function _toHtml(): string
     {
-        if ($this->config->isEnabled() && $this->getFbPixelId()) {
+        if ($this->config->isEnabled()) {
             return parent::_toHtml();
         }
 
