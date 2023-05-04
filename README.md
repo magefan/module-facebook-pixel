@@ -128,6 +128,7 @@ The code is licensed under GPL-1.0-or-later.
   * [Magento 2 Twitter Cards Extension](https://magefan.com/magento-2-twitter-cards-extension)
   * [Magento 2 Facebook Open Graph Extension](https://magefan.com/magento-2-open-graph-extension-og-tags)
   * [Magento 2 Hreflang Tags Extension](https://magefan.com/magento2-alternate-hreflang-extension)
+  * [Magento 2 Google Analytics 4 Extension](https://magefan.com/magento-2-google-analytics-4)
 
 ### [Magento 2 Cart Extensions](https://magefan.com/magento-2-extensions/cart-extensions)
 
