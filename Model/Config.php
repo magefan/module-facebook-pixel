@@ -71,7 +71,7 @@ class Config
      */
     public function getFbPixelId(string $storeId = null): string
     {
-        return (string)$this->getConfig(self::XML_PATH_FB_PIXEL_ID, $storeId);
+        return trim((string)$this->getConfig(self::XML_PATH_FB_PIXEL_ID, $storeId));
     }
 
     /**
