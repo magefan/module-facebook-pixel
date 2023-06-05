@@ -41,6 +41,11 @@
                     <label>Product Identifier</label>
                     <source_model>Magefan\FacebookPixel\Model\Config\Source\ProductAttribute</source_model>
                 </field>
+                <field id="categories" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Include Categories</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<strong class="colorRed">Warning!</strong> Enabling this option may cause the performance impact.]]></comment>
+                </field>
             </group>
             <group id="page_speed_optimization" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Page Speed Optimization</label>

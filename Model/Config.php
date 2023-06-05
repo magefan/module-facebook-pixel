@@ -24,6 +24,7 @@ class Config
      * Product attributes config
      */
     public const XML_PATH_ATTRIBUTES_PRODUCT = 'mffacebookpixel/attributes/product';
+    public const XML_PATH_ATTRIBUTES_CATEGORIES = 'mffacebookpixel/attributes/categories';
 
     /**
      * Speed optimization config
@@ -83,6 +84,17 @@ class Config
     public function getProductAttribute(string $storeId = null): string
     {
         return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_PRODUCT, $storeId));
+    }
+
+    /*
+    * Retrieve Magento product categories
+    *
+    * @param string|null $storeId
+    * @return string
+    */
+    public function getCategoriesAttribute(string $storeId = null): string
+    {
+        return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_CATEGORIES, $storeId));
     }
 
     /**

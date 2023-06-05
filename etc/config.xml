@@ -16,6 +16,7 @@
             </general>
             <attributes>
                 <product>sku</product>
+                <categories/>
             </attributes>
             <page_speed_optimization>
                 <enabled>1</enabled>
