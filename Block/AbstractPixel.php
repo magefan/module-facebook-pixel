@@ -71,7 +71,7 @@ abstract class AbstractPixel extends AbstractBlock
 
             if ($parameters && $eventName) {
                 return '<script>
-                    fbq("track", '
+                    fbq("' . $this->getTrackMethod() . '", '
                         . $this->json->serialize($eventName) . ', '
                         . $this->json->serialize($parameters)
                     . ')
@@ -80,5 +80,13 @@ abstract class AbstractPixel extends AbstractBlock
         }
 
         return '';
+    }
+
+    /**
+     * @return string
+     */
+    protected function getTrackMethod(): string
+    {
+        return "track";
     }
 }
