@@ -31,5 +31,11 @@
                 <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
             </values>
         </policy>
+        <policy id="form-action">
+            <values>
+                <value id="mf-fbpx-facebook-com" type="host">*.facebook.com</value>
+                <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
+            </values>
+        </policy>
     </policies>
 </csp_whitelist>
