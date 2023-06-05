@@ -59,7 +59,7 @@ class Config
      */
     public function isEnabled(string $storeId = null): bool
     {
-        return (bool)$this->getConfig(self::XML_PATH_EXTENSION_ENABLED, $storeId) &&
+        return $this->getConfig(self::XML_PATH_EXTENSION_ENABLED, $storeId) &&
             $this->getFbPixelId($storeId);
     }
 
@@ -82,7 +82,7 @@ class Config
      */
     public function getProductAttribute(string $storeId = null): string
     {
-        return (string)$this->getConfig(self::XML_PATH_ATTRIBUTES_PRODUCT, $storeId);
+        return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_PRODUCT, $storeId));
     }
 
     /**
@@ -114,7 +114,7 @@ class Config
      * @param string|null $storeId
      * @return bool
      */
-    public function isCookieRestrictionModeEnabled(string $storeId = null)
+    public function isCookieRestrictionModeEnabled(string $storeId = null): bool
     {
         return (bool)$this->getConfig(Custom::XML_PATH_WEB_COOKIE_RESTRICTION, $storeId);
     }
