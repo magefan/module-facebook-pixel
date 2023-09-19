@@ -2,9 +2,15 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-facebook-pixel/downloads)](https://packagist.org/packages/magefan/module-facebook-pixel)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-facebook-pixel/v/stable)](https://packagist.org/packages/magefan/module-facebook-pixel)
 
-Enable Facebook Pixel on Magento 2 website.
-
 <a href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"><img width="830" height="208" src="https://cm.magefan.com/blog/support-ukraine.png"></a>
+
+<img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
+
+<img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-facebook-pixel.jpg">
+
+[Magento 2 Facebook Pixel](https://magefan.com/magento-2-facebook-pixel-extension) is the solution that enables you to integrate Facebook pixel tracking code to Magento without any technical knowledge. You just need your Facebook Pixel ID. 
+
+Track product performance, follow customers’ journey on checkout and use that information to personalise your Facebook campaigns.
 
 <a href="https://magefan.com/magento-2-facebook-pixel-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/magento-2-facebook-pixel-extension#live-demo"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-live-demo.png"></a>
 
@@ -12,13 +18,92 @@ Enable Facebook Pixel on Magento 2 website.
   * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
   * [Magefan Community Extension](https://github.com/magefan/module-community) >= v2.1.13. Please install this extension first if you use installation via FTP.
   
+  ## Editions & Pricing
   
+<a href="https://magefan.com/magento-2-facebook-pixel-extension/pricing">
+          <img
+            src="https://cm.magefan.com/wysiwyg/products/magento-2-facebook-pixel-pricing.png"
+            alt="Plans and Pricing for Magento 2 Facebook Pixel Extension" />
+        </a>
+
+## Benefits
+* More targeted and personalized Facebook ads
+* Effortless Facebook Pixel Integration
+* Better customer behaviour tracking
+
+## Features
+
+* **Integrate Tracking Pixel from the Admin Panel**
+
+While it was relatively hard to set up Facebook Pixel in Magento 2 before due to a lack of technical knowledge, anyone can do it now. You just need the right tool 一 Magento 2 Facebook Pixel by Magefan. 
+
+It enables you to track vital eCommerce events simply by adding your Facebook Pixel ID in the admin panel. The extension covers the rest. 
 
 
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/magento-2-facebook-pixel.png">
+</p>
+
+
+* **Optimize Facebook Ads**
+  
+If you know how customers interact with your store, you can use that information to improve ads. Custom events like purchase, add to cart, add payment info, product view and others help you to segment your audience. 
+
+You can then show personalized ads to people who viewed your products but didn’t purchase anything, those who started buying, but abandoned checkout and those who just created an account. Opportunities are limitless. 
+
+
+* **Improve Conversion Rates**
+
+The more information you have on your customers' behaviour, the better you can tweak your Facebook ads to drive more conversions. 
+
+You can’t launch Facebook retargeting or remarketing campaigns using intuition and expect it to yield the results. Drive more sales by collecting data with Magento 2 Facebook Pixel Extension.
+
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/purchase-event-facebook-pixel.png">
+</p>
+
+* **Track Customers’ Behaviour on Checkout**
+
+Checkout is one of the most important steps in the customer journey. It is also one of the stages customers tend to abandon. Having insights into how your customers behave on checkout helps you drive them back.
+
+Use the checkout page view, add payment information and checkout success page view events to segment customers. You can then retarget them using Facebook campaigns.
+
+
+* **Monitor Product Performance**
+
+Tracking what products customers view, add to cart and wishlist allows you to learn your audience better. Not only does it allow you to improve your catalogue and discover reasons why customers’ visit didn’t end with a sale. 
+
+It also helps you to address people who left your website without making a purchase. Make sure no visit goes unnoticed and do the best you can to drive people back to your store. Magento 2 Facebook Pixel extension will provide all the data needed do to that.
+
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/facebook-pixel-track-product-views.png">
+</p>
+
+* **Gather Data About Customers’ Interactions with Your Store**
+
+Catalog is not the only place people spend time while in your store. Explore how your website visitors behave outside catalogue pages. Track how many people use search, visit the contacts page and create an account. 
+
+You can use the information to provide personalised offers to new customers, notify them about some new products (based on search requests) or simply optimize the pages they visit. 
+
+* **Optimize Facebook Pixel Loading**
+
+It’s vital that your website loads fast if you want to keep new visitors coming to your store, even if you use custom tracking pixels. Unlike any other custom JS, Facebook pixel code won’t make your website load longer. 
+
+Magento 2 Facebook Pixel Extension comes with the speed optimization option. It allows you to load Facebook Pixel JS only after the first mouse touch, scroll or click. 
+
+<p align="center">
+  <img width="853" height="425" src="https://cm.magefan.com/catalog/facebook-pixel-speed-optimization.png">
+</p>
+
+* **Create Localized Ads on Facebook**
+
+Do you manage a multi-language store and want to retarget visitors from each store view? Easy. You simply need to create multiple Facebook Pixel IDs and use them for different store views. 
+
+Facebook Pixel Extension for Magento will use it to help you collect data on each store view. Create not only personalized Facebook ads, but localize them for the ultimate user experience.
 
 ## Demo
 
-Try out our open demo and if you like our extension **please give us some star on Github ★**
+Try out our open demo and if you like our extension **please give us some stars on Github ★**
 <table>
   <tbody>
     <tr>
@@ -64,13 +149,16 @@ Try out our open demo and if you like our extension **please give us some star o
   </tbody>
 </table>
 
-## Online Documentation
-https://magefan.com/magento-2-facebook-pixel-extension/documentation
+## Documentation
 
+**General**
+* [How to install Magento 2 Facebook Pixel?](https://magefan.com/magento-2-facebook-pixel-extension/installation)
+* [How to update Magento 2 Facebook Pixel?](https://magefan.com/magento-2-facebook-pixel-extension/updating)
+* [How to uninstall Magento 2 Facebook Pixel?](https://magefan.com/magento-2-facebook-pixel-extension/uninstalling)
 
-## Installation Instruction
-https://magefan.com/magento-2-facebook-pixel-extension/installation
-
+**Configuration**
+* [How to Add Facebook Pixel in Magento 2?](https://magefan.com/blog/add-facebook-pixel-in-magento-2)
+  
 ## Support
 If you have any issues, please [contact us](mailto:support@magefan.com)
 then if you still need help, open a bug report in GitHub's
