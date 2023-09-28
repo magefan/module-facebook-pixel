@@ -11,6 +11,7 @@ namespace Magefan\FacebookPixel\Block;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 use Magefan\FacebookPixel\Model\Config;
+use Magento\Checkout\Model\Session;
 
 class Pixel extends Template
 {
@@ -18,6 +19,8 @@ class Pixel extends Template
      * @var Config
      */
     private $config;
+
+    private $session;
 
     /**
      * Pixel constructor.
@@ -29,9 +32,12 @@ class Pixel extends Template
     public function __construct(
         Template\Context $context,
         Config $config,
-        array $data = []
+        array $data = [],
+        Session $session = null
     ) {
         $this->config = $config;
+        $this->session = $session ?: \Magento\Framework\App\ObjectManager::getInstance()
+            ->create(Session::class);
         parent::__construct($context, $data);
     }
 
@@ -84,6 +90,11 @@ class Pixel extends Template
     protected function _toHtml(): string
     {
         if ($this->config->isEnabled()) {
+            if (('mffb.pixel' === $this->getNameInLayout()) && $this->session->getMfFacebookPixelAddToCart()) {
+                $this->session->setMfFacebookPixelAddToCart(null);
+                return '';
+            }
+
             return parent::_toHtml();
         }
 
