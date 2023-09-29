@@ -20,6 +20,9 @@ class Pixel extends Template
      */
     private $config;
 
+    /**
+     * @var Session
+     */
     private $session;
 
     /**

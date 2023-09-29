@@ -39,13 +39,12 @@ class Add
     public function __construct(
         Config $config,
         RequestInterface $request,
-        Session $session = null
+        Session $session
     )
     {
         $this->config = $config;
         $this->request = $request;
-        $this->session = $session ?: \Magento\Framework\App\ObjectManager::getInstance()
-            ->create(Session::class);
+        $this->session = $session;
     }
 
 
