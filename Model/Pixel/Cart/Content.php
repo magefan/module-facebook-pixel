@@ -21,9 +21,12 @@ class Content extends AbstractPixel implements ContentInterface
     {
         $product = $quoteItem->getProduct();
         return [
+            /*
             'id' => ($this->config->getProductAttribute() == 'sku')
                 ? $quoteItem->getSku()
                 : $product->getData($this->config->getProductAttribute()),
+            */
+            'id' => $product->getData($this->config->getProductAttribute()),
             'quantity' => $quoteItem->getQty() * 1
         ];
     }
