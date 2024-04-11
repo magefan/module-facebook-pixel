@@ -1,4 +1,4 @@
-# [Magento 2 Facebook Pixel Extension](https://magefan.com/magento-2-facebook-pixel-extension)
+# [Magento 2 Facebook Pixel Extension](https://magefan.com/magento-2-facebook-pixel-extension) by Magefan
 [![Total Downloads](https://poser.pugx.org/magefan/module-facebook-pixel/downloads)](https://packagist.org/packages/magefan/module-facebook-pixel)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-facebook-pixel/v/stable)](https://packagist.org/packages/magefan/module-facebook-pixel)
 
@@ -33,7 +33,7 @@ Track product performance, follow customers’ journey on checkout and use that 
 
 ## Features
 
-* **Integrate Tracking Pixel from the Admin Panel**
+### Integrate Tracking Pixel from the Admin Panel
 
 While it was relatively hard to set up Facebook Pixel in Magento 2 before due to a lack of technical knowledge, anyone can do it now. You just need the right tool 一 Magento 2 Facebook Pixel by Magefan. 
 
@@ -45,14 +45,14 @@ It enables you to track vital eCommerce events simply by adding your Facebook Pi
 </p>
 
 
-* **Optimize Facebook Ads**
+### Optimize Facebook Ads
   
 If you know how customers interact with your store, you can use that information to improve ads. Custom events like purchase, add to cart, add payment info, product view and others help you to segment your audience. 
 
 You can then show personalized ads to people who viewed your products but didn’t purchase anything, those who started buying, but abandoned checkout and those who just created an account. Opportunities are limitless. 
 
 
-* **Improve Conversion Rates**
+### Improve Conversion Rates
 
 The more information you have on your customers' behaviour, the better you can tweak your Facebook ads to drive more conversions. 
 
@@ -62,14 +62,14 @@ You can’t launch Facebook retargeting or remarketing campaigns using intuition
   <img width="853" height="425" src="https://cm.magefan.com/catalog/purchase-event-facebook-pixel.png">
 </p>
 
-* **Track Customers’ Behaviour on Checkout**
+### Track Customers’ Behaviour on Checkout
 
 Checkout is one of the most important steps in the customer journey. It is also one of the stages customers tend to abandon. Having insights into how your customers behave on checkout helps you drive them back.
 
 Use the checkout page view, add payment information and checkout success page view events to segment customers. You can then retarget them using Facebook campaigns.
 
 
-* **Monitor Product Performance**
+### Monitor Product Performance
 
 Tracking what products customers view, add to cart and wishlist allows you to learn your audience better. Not only does it allow you to improve your catalogue and discover reasons why customers’ visit didn’t end with a sale. 
 
@@ -79,13 +79,13 @@ It also helps you to address people who left your website without making a purch
   <img width="853" height="425" src="https://cm.magefan.com/catalog/facebook-pixel-track-product-views.png">
 </p>
 
-* **Gather Data About Customers’ Interactions with Your Store**
+### Gather Data About Customers’ Interactions with Your Store
 
 Catalog is not the only place people spend time while in your store. Explore how your website visitors behave outside catalogue pages. Track how many people use search, visit the contacts page and create an account. 
 
 You can use the information to provide personalised offers to new customers, notify them about some new products (based on search requests) or simply optimize the pages they visit. 
 
-* **Optimize Facebook Pixel Loading**
+### Optimize Facebook Pixel Loading
 
 It’s vital that your website loads fast if you want to keep new visitors coming to your store, even if you use custom tracking pixels. Unlike any other custom JS, Facebook pixel code won’t make your website load longer. 
 
@@ -95,7 +95,7 @@ Magento 2 Facebook Pixel Extension comes with the speed optimization option. It 
   <img width="853" height="425" src="https://cm.magefan.com/catalog/facebook-pixel-speed-optimization.png">
 </p>
 
-* **Create Localized Ads on Facebook**
+### Create Localized Ads on Facebook
 
 Do you manage a multi-language store and want to retarget visitors from each store view? Easy. You simply need to create multiple Facebook Pixel IDs and use them for different store views. 
 
@@ -215,6 +215,7 @@ The code is licensed under GPL-1.0-or-later.
 
 ### [Magento 2 Marketing Automation Extensions](https://magefan.com/magento-2-extensions/magento-marketing-automation)
 
+* [Magento 2 Product Labels Extension](https://magefan.com/magento-2-product-labels)
 * [Magento 2 Dynamic Categories](https://magefan.com/magento-2-dynamic-categories)
 * [Magento 2 CMS Display Rules Extension](https://magefan.com/magento-2-cms-display-rules-extension)
 * [Magento 2 Automatic Related Products](https://magefan.com/magento-2-automatic-related-products)
