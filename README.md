@@ -16,7 +16,8 @@ Track product performance, follow customers’ journey on checkout and use that 
 
 ## Requirements
   * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
-  * [Magefan Community Extension](https://github.com/magefan/module-community) >= v2.1.13. Please install this extension first if you use installation via FTP.
+  * [Magefan Community Extension](https://github.com/magefan/module-community) >= v2.1.20. Please install this extension first if you use installation via FTP.
+  * **Note** that the extension is free only for the Magento Community (Open Source) Edition. For Magento EE, ECE, and B2B you need to purchase the license  at magefan.com.
   
   ## Editions & Pricing
   
