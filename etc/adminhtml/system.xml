@@ -63,6 +63,17 @@
                     <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\ProtectCustomerData</frontend_model>
                 </field>
             </group>
+            <group id="conversion_api" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Conversion Api</label>
+                <attribute type="enabled">1</attribute>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Conversions API</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="access_token" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+                </field>
+            </group>
         </section>
     </system>
 </config>
