@@ -71,10 +71,6 @@ abstract class AbstractPixel extends AbstractBlock
 
             if ($parameters && $eventName) {
                 return '<script style="display: none;">
-                fbqapi("' . $this->getTrackMethod() . '", '
-                    . $this->json->serialize($eventName) . ', '
-                    . $this->json->serialize($parameters)
-                    . ')
                     fbq("' . $this->getTrackMethod() . '", '
                         . $this->json->serialize($eventName) . ', '
                         . $this->json->serialize($parameters)
