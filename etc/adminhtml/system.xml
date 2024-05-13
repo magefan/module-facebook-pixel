@@ -64,7 +64,10 @@
                 </field>
             </group>
             <group id="conversion_api" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Conversion Api</label>
+                <field id="info" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\InfoConversionApi</frontend_model>
+                </field>
+                <label>Conversion Api (Extra)</label>
                 <attribute type="enabled">1</attribute>
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable Conversions API</label>
