@@ -14,6 +14,10 @@
                 <mftype>1</mftype>
                 <fb_pixel_id/>
             </general>
+            <conversion_api>
+                <enabled>0</enabled>
+                <access_token/>
+            </conversion_api>
             <attributes>
                 <product>sku</product>
                 <categories/>

@@ -32,6 +32,6 @@ class InfoConversionApi extends InfoPlan
      */
     protected function getText(): string
     {
-        return 'Conversion Api options are available in <strong>Extra</strong> plans only.';
+        return 'Conversion API is available in <strong>Extra</strong> plans only.';
     }
 }

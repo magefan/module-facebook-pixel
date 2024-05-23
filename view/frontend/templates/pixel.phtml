@@ -28,7 +28,7 @@ if (!isset($escaper)) {
         fbq('track', 'PageView');
 
         var triedToLoadPixel = false;
-        <?php if ($block->isSpeedOptimizationEnabled()) { ?>
+        <?php if ($block->isSpeedOptimizationEnabled() && $block->getRequest()->getModuleName() !== 'checkout') { ?>
             var actionDetected = false;
             document.addEventListener('scroll', initMfFbPixel);
             document.addEventListener('mousemove', initMfFbPixel);

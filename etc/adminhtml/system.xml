@@ -35,6 +35,23 @@
                     <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\EventList</frontend_model>
                 </field>
             </group>
+            <group id="conversion_api" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="info" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\InfoConversionApi</frontend_model>
+                </field>
+                <label>Conversion API (Extra)</label>
+                <attribute type="enabled">1</attribute>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Conversions API</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="access_token" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Access Token</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
             <group id="attributes" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Product Attributes Mapping</label>
                 <field id="product" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -61,20 +78,6 @@
                     <label>Protect Customer Data</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\ProtectCustomerData</frontend_model>
-                </field>
-            </group>
-            <group id="conversion_api" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                <field id="info" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <frontend_model>Magefan\FacebookPixel\Block\Adminhtml\System\Config\Form\InfoConversionApi</frontend_model>
-                </field>
-                <label>Conversion Api (Extra)</label>
-                <attribute type="enabled">1</attribute>
-                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Enable Conversions API</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="access_token" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Access Token</label>
                 </field>
             </group>
         </section>
