@@ -65,7 +65,7 @@ abstract class AbstractPixel extends AbstractBlock
      */
     protected function _toHtml(): string
     {
-        if ($this->config->isEnabled()) {
+        if ($this->config->isEnabled() && $this->config->getFbPixelId()) {
             $parameters = $this->getParameters();
             $eventName = $this->getEventName();
 

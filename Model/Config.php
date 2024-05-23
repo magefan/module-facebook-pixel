@@ -60,8 +60,7 @@ class Config
      */
     public function isEnabled(string $storeId = null): bool
     {
-        return $this->getConfig(self::XML_PATH_EXTENSION_ENABLED, $storeId) &&
-            $this->getFbPixelId($storeId);
+        return (bool)$this->getConfig(self::XML_PATH_EXTENSION_ENABLED, $storeId);
     }
 
     /**
