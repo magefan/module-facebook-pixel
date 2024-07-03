@@ -78,8 +78,8 @@ abstract class AbstractPixel extends AbstractBlock
         if ($this->config->isEnabled() && $this->config->getFbPixelId()) {
             $parameters = $this->getParameters();
             $eventName = $this->getEventName();
-            $eventId = ['eventID' => $eventName . '.' . rand() . '.' . time()];
             if ($parameters && $eventName) {
+                $eventId = ['eventID' => $eventName . '.' . rand() . '.' . time()];
                 $script = '
                     fbq("' . $this->getTrackMethod() . '", '
                         . $this->json->serialize($eventName) . ', '
