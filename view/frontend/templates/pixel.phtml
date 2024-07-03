@@ -30,7 +30,7 @@ $script = '';
         f.mfFbq = 1;
 
         fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}');
-        fbq('track', 'PageView',{},{ 'eventID': '{$eventId}'});
+        fbq('track', 'PageView', {}, {'eventID':'{$eventId}'});
 
         var triedToLoadPixel = false;
     ";
