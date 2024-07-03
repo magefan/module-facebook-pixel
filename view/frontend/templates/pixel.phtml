@@ -13,6 +13,8 @@ if (!isset($escaper)) {
     $escaper = $block;
 }
 
+$eventId = 'PageView' . '.' . rand() . '.' . time();
+
 $script = '';
 ?>
 <?php
@@ -28,7 +30,7 @@ $script = '';
         f.mfFbq = 1;
 
         fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}');
-        fbq('track', 'PageView');
+        fbq('track', 'PageView', {}, {'eventID':'{$eventId}'});
 
         var triedToLoadPixel = false;
     ";
