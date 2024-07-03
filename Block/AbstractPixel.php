@@ -12,6 +12,7 @@ use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\View\Element\Context;
 use Magefan\FacebookPixel\Model\Config;
 use Magento\Framework\Serialize\Serializer\Json;
+use Magefan\Community\Api\SecureHtmlRendererInterface;
 
 abstract class AbstractPixel extends AbstractBlock
 {
@@ -26,21 +27,30 @@ abstract class AbstractPixel extends AbstractBlock
     protected $json;
 
     /**
+     * @var SecureHtmlRendererInterface
+     */
+    protected $mfSecureRenderer;
+
+    /**
      * AbstractPixel constructor.
      *
      * @param Context $context
      * @param Config $config
      * @param Json $json
      * @param array $data
+     * @param SecureHtmlRendererInterface|null $mfSecureRenderer
      */
     public function __construct(
         Context $context,
         Config $config,
         Json $json,
-        array $data = []
+        array $data = [],
+        SecureHtmlRendererInterface $mfSecureRenderer = null
     ) {
         $this->config = $config;
         $this->json = $json;
+        $this->mfSecureRenderer = $mfSecureRenderer ?: \Magento\Framework\App\ObjectManager::getInstance()
+            ->get(SecureHtmlRendererInterface::class);
         parent::__construct($context, $data);
     }
 
@@ -68,15 +78,17 @@ abstract class AbstractPixel extends AbstractBlock
         if ($this->config->isEnabled() && $this->config->getFbPixelId()) {
             $parameters = $this->getParameters();
             $eventName = $this->getEventName();
-            $eventId = ['eventID' => $this->getEventName() . '.' . rand() . '.' . time()];
+            $eventId = ['eventID' => $eventName . '.' . rand() . '.' . time()];
             if ($parameters && $eventName) {
-                return '<script style="display: none;">
+                $script = '
                     fbq("' . $this->getTrackMethod() . '", '
                         . $this->json->serialize($eventName) . ', '
-                        . $this->json->serialize($parameters).','
+                        . $this->json->serialize($parameters) . ', '
                         . $this->json->serialize($eventId)
-                    . ')
-                </script>';
+                    . ');
+                ';
+
+                return $this->mfSecureRenderer->renderTag('script', ['style' => 'display:none'], $script, false);
             }
         }
 

@@ -42,7 +42,7 @@ abstract class InfoPlan extends \Magefan\Community\Block\Adminhtml\System\Config
         $html .= $this->getText() . ' <a style="color: #ef672f; text-decoration: underline;" href="https://magefan.com/magento-2-google-tag-manager/pricing?utm_source=gtm_config&utm_medium=link&utm_campaign=regular" target="_blank">Read more</a>.';
         $html .= '</div>';
 
-        $html .= '<script>
+        $script = '
                 require(["jquery", "Magento_Ui/js/modal/alert", "domReady!"], function($, alert){
                     setInterval(function(){
                         var $plusSection = $("#' . $this->getSectionId() . '-state").parent(".section-config");
@@ -74,7 +74,9 @@ abstract class InfoPlan extends \Magefan\Community\Block\Adminhtml\System\Config
                         });
                     }, 1000);
                 });
-            </script>';
+            ';
+
+        $html .= $this->mfSecureRenderer->renderTag('script', [], $script, false);
 
         return $html;
     }

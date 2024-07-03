@@ -84,9 +84,11 @@ class InitiateCheckout extends AbstractPixel
     {
         $html = parent::_toHtml();
 
-        $html .= '<script>
+        $script = '
             window.mfFbPixelCheckout = ' . json_encode($this->getParameters()) . ';
-        </script>';
+        ';
+
+        $html .= $this->mfSecureRenderer->renderTag('script', [], $script, false);
 
         return $html;
     }

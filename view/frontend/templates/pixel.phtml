@@ -5,15 +5,20 @@
  */
 /** @var \Magefan\FacebookPixel\Block\Pixel $block */
 /** @var \Magento\Framework\Escaper $escaper */
+/** @var Magefan\Community\View\Helper\SecureHtmlRenderer $mfSecureRenderer */
 ?>
 <?php
 if (!isset($escaper)) {
     /* Compatability fix for old Magento versions */
     $escaper = $block;
 }
+
+$eventId = 'PageView' . '.' . rand() . '.' . time();
+
+$script = '';
 ?>
-<!-- Meta Pixel Code -->
-<script>
+<?php
+    $script .= "
     !function(f,n){
         if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments);
@@ -24,11 +29,15 @@ if (!isset($escaper)) {
         n.queue=[];
         f.mfFbq = 1;
 
-        fbq('init', '<?= $escaper->escapeHtml($block->getFbPixelId()) ?>');
-        fbq('track', 'PageView',{},{ 'eventID': 'PageView' + '.' + <?= rand() ?> + '.' + <?= time() ?> });
+        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}');
+        fbq('track', 'PageView',{},{ 'eventID': '{$eventId}'});
 
         var triedToLoadPixel = false;
-        <?php if ($block->isSpeedOptimizationEnabled() && $block->getRequest()->getModuleName() !== 'checkout') { ?>
+    ";
+
+
+    if ($block->isSpeedOptimizationEnabled() && $block->getRequest()->getModuleName() !== 'checkout') {
+        $script .= "
             var actionDetected = false;
             document.addEventListener('scroll', initMfFbPixel);
             document.addEventListener('mousemove', initMfFbPixel);
@@ -44,11 +53,15 @@ if (!isset($escaper)) {
                 if (triedToLoadPixel) {
                     mfLoadFbPixel();
                 }
-            }
-        <?php } else { ?>
+            };
+        ";
+    } else {
+        $script .= "
             var actionDetected = true;
-        <?php } ?>
+        ";
+    }
 
+    $script .= "
         function mfLoadFbPixel() {
             triedToLoadPixel = true;
             if (!actionDetected) return false;
@@ -59,8 +72,11 @@ if (!isset($escaper)) {
                 s.parentNode.insertBefore(t,s)
             }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
         }
+    ";
 
-        <?php if ($block->isProtectCustomerDataEnabled()) { ?>
+
+    if ($block->isProtectCustomerDataEnabled()) {
+        $script .= "
         document.addEventListener('DOMContentLoaded', function () {
             function getCookieValue(cookieName) {
                 let name = cookieName + '=';
@@ -82,11 +98,11 @@ if (!isset($escaper)) {
 
             function customerDataAllowed() {
                 let cookie = getCookieValue(
-                    '<?= $escaper->escapeHtml(\Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE) ?>'
+                    '{$escaper->escapeHtml(\Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE)}'
                 );
                 if (cookie) {
                     cookie = JSON.parse(decodeURIComponent(cookie));
-                    if (cookie[<?= $escaper->escapeHtml($block->getWebsiteId()) ?>]) {
+                    if (cookie[{$escaper->escapeHtml($block->getWebsiteId())}]) {
                         return true;
                     }
                 }
@@ -104,10 +120,17 @@ if (!isset($escaper)) {
                 }, 1000);
             }
         });
+        ";
 
-        <?php } else { ?>
-        mfLoadFbPixel();
-        <?php } ?>
-    }(window);
-</script>
-<!-- End Meta Pixel Code -->
+
+    } else {
+        $script .= "
+            mfLoadFbPixel();
+        ";
+    }
+
+    $script .= "
+        }(window);
+    ";
+?>
+<?= /* @noEscape */ $mfSecureRenderer->renderTag('script', [], $script, false) ?>
