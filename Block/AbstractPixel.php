@@ -79,12 +79,11 @@ abstract class AbstractPixel extends AbstractBlock
             $parameters = $this->getParameters();
             $eventName = $this->getEventName();
             if ($parameters && $eventName) {
-                $eventId = ['eventID' => $eventName . '.' . rand() . '.' . time()];
                 $script = '
                     fbq("' . $this->getTrackMethod() . '", '
                         . $this->json->serialize($eventName) . ', '
                         . $this->json->serialize($parameters) . ', '
-                        . $this->json->serialize($eventId)
+                        . '{ "eventID": "' . $eventName . '" + "." + Math.floor(Math.random() * 1000000) + "." + Date.now() }'
                     . ');
                 ';
 
