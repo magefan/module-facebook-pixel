@@ -11,6 +11,8 @@ namespace Magefan\FacebookPixel\Block;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 use Magefan\FacebookPixel\Model\Config;
+use Magefan\FacebookPixel\Model\CustomerData;
+use Magento\Framework\View\Element\Template\Context;
 
 class Pixel extends Template
 {
@@ -18,20 +20,27 @@ class Pixel extends Template
      * @var Config
      */
     private $config;
+    /**
+     * @var CustomerData
+     */
+    private $customerData;
 
     /**
      * Pixel constructor.
      *
-     * @param Template\Context $context
+     * @param Context $context
      * @param Config $config
+     * @param CustomerData $customerData
      * @param array $data
      */
     public function __construct(
         Template\Context $context,
         Config $config,
+        CustomerData $customerData,
         array $data = []
     ) {
         $this->config = $config;
+        $this->customerData = $customerData;
         parent::__construct($context, $data);
     }
 
@@ -88,5 +97,13 @@ class Pixel extends Template
         }
 
         return '';
+    }
+
+    /**
+     * @return false|string
+     */
+    public function getCustomerData()
+    {
+        return json_encode($this->customerData->getCustomerData());
     }
 }
