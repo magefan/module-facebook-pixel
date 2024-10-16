@@ -27,7 +27,7 @@ $script = '';
         n.queue=[];
         f.mfFbq = 1;
 
-        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}');
+        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', {$block->getCustomerData()});
         var eventName = 'PageView';
         fbq('track', eventName, {}, {'eventID': eventName + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now()});
         var triedToLoadPixel = false;
