@@ -27,7 +27,7 @@ $script = '';
         n.queue=[];
         f.mfFbq = 1;
         
-        let customerData = JSON.parse(localStorage.getItem('mage-cache-storage')).customer;
+        let customerData = localStorage.getItem('mage-cache-storage') ? JSON.parse(localStorage.getItem('mage-cache-storage')).customer : false;
         let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data) ? customerData.mf_fb_pixel_customer_data : {};
 
         fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
