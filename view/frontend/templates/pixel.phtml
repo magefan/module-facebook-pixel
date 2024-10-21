@@ -26,8 +26,11 @@ $script = '';
         if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
         n.queue=[];
         f.mfFbq = 1;
+        
+        let customerData = JSON.parse(localStorage.getItem('mage-cache-storage')).customer;
+        let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data) ? customerData.mf_fb_pixel_customer_data : {};
 
-        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}');
+        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
         var eventName = 'PageView';
         fbq('track', eventName, {}, {'eventID': eventName + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now()});
         var triedToLoadPixel = false;
