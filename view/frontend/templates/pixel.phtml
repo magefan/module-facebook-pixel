@@ -32,7 +32,7 @@ $script = '';
 
         fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
         var eventName = 'PageView';
-        fbq('track', eventName, {}, {'eventID': eventName + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now()});
+        fbq('track', 'PageView', {}, {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now()});
         var triedToLoadPixel = false;
     ";
 
