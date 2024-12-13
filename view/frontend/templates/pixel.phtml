@@ -30,8 +30,7 @@ $script = '';
         let customerData = localStorage.getItem('mage-cache-storage') ? JSON.parse(localStorage.getItem('mage-cache-storage')).customer : false;
         let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data) ? customerData.mf_fb_pixel_customer_data : {};
 
-        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
-        var eventName = 'PageView';
+        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);;
         fbq('track', 'PageView', {}, {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now()});
         var triedToLoadPixel = false;
     ";
