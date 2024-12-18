@@ -2,17 +2,22 @@
 [![Total Downloads](https://poser.pugx.org/magefan/module-facebook-pixel/downloads)](https://packagist.org/packages/magefan/module-facebook-pixel)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-facebook-pixel/v/stable)](https://packagist.org/packages/magefan/module-facebook-pixel)
 
-<a href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"><img width="830" height="208" src="https://cm.magefan.com/blog/support-ukraine.png"></a>
-
-<img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
-
 <img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-facebook-pixel.jpg">
 
 [Magento 2 Facebook Pixel](https://magefan.com/magento-2-facebook-pixel-extension) is the solution that enables you to integrate Facebook pixel tracking code to Magento without any technical knowledge. You just need your Facebook Pixel ID. 
 
 Track product performance, follow customers’ journey on checkout and use that information to personalise your Facebook campaigns.
 
-<a href="https://magefan.com/magento-2-facebook-pixel-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/magento-2-facebook-pixel-extension#live-demo"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-live-demo.png"></a>
+<img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
+
+<a href="https://magefan.com/magento-2-facebook-pixel-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/contact?question=request-free-trial&product_id=1857#contact-form-fields"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/free-trial.png">
+
+## Useful Links
+  * [User Guide](https://magefan.com/magento-2-facebook-pixel-extension/documentation)
+  * [Change Log](https://magefan.com/magento-2-facebook-pixel-extension/change-log)
+  * [FAQs](https://magefan.com/magento-2-facebook-pixel-extension#pattr-faq)
+
+## 🇺🇦 Stand with Ukraine! [How can you help?](https://magefan.com/blog/join-our-donations)
 
 ## Requirements
   * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
@@ -28,9 +33,14 @@ Track product performance, follow customers’ journey on checkout and use that 
         </a>
 
 ## Benefits
-* More targeted and personalized Facebook ads
-* Effortless Facebook Pixel Integration
-* Better customer behaviour tracking
+* [Integrate Tracking Pixel from the Admin Panel](https://github.com/magefan/module-facebook-pixel#integrate-tracking-pixel-from-the-admin-panel)
+* [Optimize Facebook Ads](https://github.com/magefan/module-facebook-pixel#optimize-facebook-ads)
+* [Improve Conversion Rates](https://github.com/magefan/module-facebook-pixel#improve-conversion-rates)
+* [Track Customers’ Behaviour on Checkout](https://github.com/magefan/module-facebook-pixel#track-customers-behaviour-on-checkout)
+* [Monitor Product Performance](https://github.com/magefan/module-facebook-pixel#monitor-product-performance)
+* [Gather Data About Customers’ Interactions with Your Store](https://github.com/magefan/module-facebook-pixel#gather-data-about-customers-interactions-with-your-store)
+* [Optimize Facebook Pixel Loading](https://github.com/magefan/module-facebook-pixel#optimize-facebook-pixel-loading)
+* [Create Localized Ads on Facebook](https://github.com/magefan/module-facebook-pixel#create-localized-ads-on-facebook)
 
 ## Features
 
@@ -120,7 +130,7 @@ Try out our open demo and if you like our extension **please give us some stars 
         <a href="http://fpx.demo.magefan.top/">
           <img
             src="https://magefan.com/static/version1520969775/frontend/Magefan/new/en_US/images/product-tab-demo-1.jpg"
-            alt="Magneto 2 Facebook Pixel Extension Storefront Demo"
+            alt="Magento 2 Facebook Pixel Extension Storefront Demo"
             height="220"
           >
         </a>
@@ -128,8 +138,8 @@ Try out our open demo and if you like our extension **please give us some stars 
       <td align="center" valign="middle">
         <a href="http://fpx.demo.magefan.top/admin/">
           <img
-            src="https://magefan.com/static/version1520969775/frontend/Magefan/new/en_US/images/product-tab-demo-2.jpg"
-            alt="Magneto 2 Facebook Pixel Extension Admin Panel Demo"
+            src="https://cs.magefan.com/version1732118579/frontend/Magefan/next/en_US/Magefan_CssOptimizer/images/product-tab-demo-2.jpg"
+            alt="Magento 2 Facebook Pixel Extension Admin Panel Demo"
             height="220"
           >
         </a>
@@ -149,16 +159,6 @@ Try out our open demo and if you like our extension **please give us some stars 
     </tr>
   </tbody>
 </table>
-
-## Documentation
-
-**General**
-* [How to install Magento 2 Facebook Pixel?](https://magefan.com/magento-2-facebook-pixel-extension/installation)
-* [How to update Magento 2 Facebook Pixel?](https://magefan.com/magento-2-facebook-pixel-extension/updating)
-* [How to uninstall Magento 2 Facebook Pixel?](https://magefan.com/magento-2-facebook-pixel-extension/uninstalling)
-
-**Configuration**
-* [How to Add Facebook Pixel in Magento 2?](https://magefan.com/blog/add-facebook-pixel-in-magento-2)
   
 ## Support
 If you have any issues, please [contact us](mailto:support@magefan.com)
