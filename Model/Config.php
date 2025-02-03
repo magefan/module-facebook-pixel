@@ -11,6 +11,7 @@ namespace Magefan\FacebookPixel\Model;
 use Magento\Config\Model\Config\Backend\Admin\Custom;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\Module\Manager as ModuleManager;
 
 class Config
 {
@@ -37,19 +38,32 @@ class Config
     public const XML_PATH_PROTECT_CUSTOMER_DATA = 'mffacebookpixel/customer_data/protect';
 
     /**
+     * MF cookie consent extension enabled
+     */
+    public const XML_PATH_MF_COOKIE_CONSENT_EXTENSION_ENABLED = 'mf_cookie_consent/general/enabled';
+
+    /**
      * @var ScopeConfigInterface
      */
     private $scopeConfig;
 
     /**
+     * @var ModuleManager
+     */
+    protected $moduleManager;
+
+
+    /**
      * Config constructor.
-     *
      * @param ScopeConfigInterface $scopeConfig
+     * @param ModuleManager $moduleManager
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        ModuleManager $moduleManager
     ) {
         $this->scopeConfig = $scopeConfig;
+        $this->moduleManager = $moduleManager;
     }
 
     /**
@@ -128,6 +142,18 @@ class Config
     public function isCookieRestrictionModeEnabled(string $storeId = null): bool
     {
         return (bool)$this->getConfig(Custom::XML_PATH_WEB_COOKIE_RESTRICTION, $storeId);
+    }
+
+    /**
+     * Retrieve true if mf cookie consent extension is enabled
+     *
+     * @param string|null $storeId
+     * @return bool
+     */
+    public function isMfCookieConsentExtensionEnabled(string $storeId = null)
+    {
+        return $this->moduleManager->isEnabled('Magefan_CookieConsent') &&
+            $this->getConfig(self::XML_PATH_MF_COOKIE_CONSENT_EXTENSION_ENABLED, $storeId);
     }
 
     /**

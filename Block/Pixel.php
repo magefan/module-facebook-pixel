@@ -77,6 +77,16 @@ class Pixel extends Template
     }
 
     /**
+     * Retrieve true if mf cookie consent extension is enabled
+     *
+     * @return bool
+     */
+    public function isMfCookieConsentExtensionEnabled()
+    {
+        return $this->config->isMfCookieConsentExtensionEnabled();
+    }
+
+    /**
      * Init FB pixel
      *
      * @return string
