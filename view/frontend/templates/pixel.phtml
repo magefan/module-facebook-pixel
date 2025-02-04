@@ -110,7 +110,22 @@ $script = '';
                     }
                 };
 
-                /* !!!!! */
+                if (window.dataLayer) {
+                    var consentData;
+                    for (var i = 0; i < window.dataLayer.length; i++) {
+                        if (dataLayer[i][0] === 'consent') {
+                            consentData = dataLayer[i];
+                        }
+                    };
+                    if (consentData && consentData[2]) {
+                        var ads = consentData[2];
+                        if (ads.ad_user_data === 'granted' &&
+                            ads.ad_personalization === 'granted' &&
+                            ads.ad_storage === 'granted') {
+                                return true;
+                        }
+                    };
+                };
 
                 return false;
             };
