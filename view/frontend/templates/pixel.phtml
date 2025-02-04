@@ -92,11 +92,14 @@ $script = '';
                     if (a.indexOf(name) === 0) {
                         return a.substring(name.length, a.length);
                     }
-                }
+                };
                 return '';
             }
 
             function customerDataAllowed() {
+                if (getCookieValue('mf_cookie_consent')) {
+                    return true;
+                };
                 let cookie = getCookieValue(
                     '{$escaper->escapeHtml(\Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE)}'
                 );
@@ -105,10 +108,12 @@ $script = '';
                     if (cookie[{$escaper->escapeHtml($block->getWebsiteId())}]) {
                         return true;
                     }
-                }
+                };
 
-                return false
-            }
+                /* !!!!! */
+
+                return false;
+            };
 
             if (customerDataAllowed()) {
                 mfLoadFbPixel();
@@ -121,8 +126,6 @@ $script = '';
             }
         });
         ";
-
-
     } else {
         $script .= "
             mfLoadFbPixel();
