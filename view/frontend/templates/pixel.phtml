@@ -116,9 +116,7 @@ $script = '';
                         if (dataLayer[i][0] === 'consent') {
                             consentData = dataLayer[i];
                         }
-                    }
-                
-                
+                    };
                     if (consentData && consentData[2]) {
                         var ads = consentData[2];
                         if (ads.ad_user_data === 'granted' &&
@@ -126,8 +124,8 @@ $script = '';
                             ads.ad_storage === 'granted') {
                                 return true;
                         }
-                    }
-                }
+                    };
+                };
 
                 return false;
             };
