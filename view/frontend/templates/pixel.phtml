@@ -110,8 +110,15 @@ $script = '';
                     }
                 };
 
-                /* !!!!! */
-
+                var consentData = dataLayer.find(e => e[0] === 'consent');
+                if (consentData) {
+                    var ads = consentData[2];
+                    if (ads.ad_user_data == 'granted' &&
+                        ads.ad_personalization == 'granted' &&
+                        ads.ad_storage == 'granted') {
+                            return true;
+                        }
+                }
                 return false;
             };
 
