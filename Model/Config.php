@@ -115,8 +115,7 @@ class Config
      */
     public function isProtectCustomerDataEnabled(string $storeId = null): bool
     {
-        return (bool)$this->getConfig(self::XML_PATH_PROTECT_CUSTOMER_DATA, $storeId) &&
-            $this->isCookieRestrictionModeEnabled($storeId);
+        return (bool)$this->getConfig(self::XML_PATH_PROTECT_CUSTOMER_DATA, $storeId);
     }
 
     /**
