@@ -58,7 +58,7 @@ class Config
      * @param string|null $storeId
      * @return bool
      */
-    public function isEnabled(string $storeId = null): bool
+    public function isEnabled(?string $storeId = null): bool
     {
         return (bool)$this->getConfig(self::XML_PATH_EXTENSION_ENABLED, $storeId);
     }
@@ -69,7 +69,7 @@ class Config
      * @param string|null $storeId
      * @return string
      */
-    public function getFbPixelId(string $storeId = null): string
+    public function getFbPixelId(?string $storeId = null): string
     {
         return trim((string)$this->getConfig(self::XML_PATH_FB_PIXEL_ID, $storeId));
     }
@@ -80,7 +80,7 @@ class Config
      * @param string|null $storeId
      * @return string
      */
-    public function getProductAttribute(string $storeId = null): string
+    public function getProductAttribute(?string $storeId = null): string
     {
         return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_PRODUCT, $storeId));
     }
@@ -91,7 +91,7 @@ class Config
     * @param string|null $storeId
     * @return string
     */
-    public function getCategoriesAttribute(string $storeId = null): string
+    public function getCategoriesAttribute(?string $storeId = null): string
     {
         return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_CATEGORIES, $storeId));
     }
@@ -102,7 +102,7 @@ class Config
      * @param string|null $storeId
      * @return bool
      */
-    public function isSpeedOptimizationEnabled(string $storeId = null): bool
+    public function isSpeedOptimizationEnabled(?string $storeId = null): bool
     {
         return (bool)$this->getConfig(self::XML_PATH_SPEED_OPTIMIZATION_ENABLED, $storeId);
     }
@@ -113,7 +113,7 @@ class Config
      * @param string|null $storeId
      * @return bool
      */
-    public function isProtectCustomerDataEnabled(string $storeId = null): bool
+    public function isProtectCustomerDataEnabled(?string $storeId = null): bool
     {
         return (bool)$this->getConfig(self::XML_PATH_PROTECT_CUSTOMER_DATA, $storeId);
     }
@@ -124,7 +124,7 @@ class Config
      * @param string|null $storeId
      * @return bool
      */
-    public function isCookieRestrictionModeEnabled(string $storeId = null): bool
+    public function isCookieRestrictionModeEnabled(?string $storeId = null): bool
     {
         return (bool)$this->getConfig(Custom::XML_PATH_WEB_COOKIE_RESTRICTION, $storeId);
     }
@@ -136,7 +136,7 @@ class Config
      * @param string|null $storeId
      * @return mixed
      */
-    public function getConfig(string $path, string $storeId = null)
+    public function getConfig(string $path, ?string $storeId = null)
     {
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE, $storeId);
     }

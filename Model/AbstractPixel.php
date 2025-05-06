@@ -56,8 +56,8 @@ class AbstractPixel
         Config $config,
         StoreManagerInterface $storeManager,
         CategoryRepositoryInterface $categoryRepository,
-        RequestInterface $request = null,
-        Registry $registry = null
+        ?RequestInterface $request = null,
+        ?Registry $registry = null
     ) {
         $this->config = $config;
         $this->storeManager = $storeManager;

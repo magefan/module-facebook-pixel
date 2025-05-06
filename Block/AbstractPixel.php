@@ -45,7 +45,7 @@ abstract class AbstractPixel extends AbstractBlock
         Config $config,
         Json $json,
         array $data = [],
-        SecureHtmlRendererInterface $mfSecureRenderer = null
+        ?SecureHtmlRendererInterface $mfSecureRenderer = null
     ) {
         $this->config = $config;
         $this->json = $json;
