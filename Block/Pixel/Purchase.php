@@ -61,7 +61,7 @@ class Purchase extends AbstractPixel
      */
     protected function getParameters(): array
     {
-        $order = $this->checkoutSession->getLastRealOrder();
+        $order = $this->getOrder();
         return $this->purchase->get($order);
     }
 
@@ -73,5 +73,13 @@ class Purchase extends AbstractPixel
     protected function getEventName(): string
     {
         return self::PURCHASE;
+    }
+
+    /**
+     * @return \Magento\Sales\Model\Order
+     */
+    protected function getOrder()
+    {
+        return $this->checkoutSession->getLastRealOrder();
     }
 }
