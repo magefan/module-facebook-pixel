@@ -19,7 +19,7 @@ class Content extends AbstractPixel implements ContentInterface
      */
     public function get(Item $quoteItem): array
     {
-        $product = $quoteItem->getProduct();
+        $product = $this->getProduct($quoteItem);
         return [
             /*
             'id' => ($this->config->getProductAttribute() == 'sku')
@@ -29,5 +29,29 @@ class Content extends AbstractPixel implements ContentInterface
             'id' => $product->getData($this->config->getProductAttribute()),
             'quantity' => $quoteItem->getQty() * 1
         ];
+    }
+
+    /**
+     * @param $quoteItem
+     * @return \Magento\Catalog\Api\Data\ProductInterface
+     */
+    protected function getProduct($quoteItem)
+    {
+        $product = $quoteItem->getProduct();
+        if ($product->getTypeId() === 'configurable') {
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $productRepository = $objectManager->get(\Magento\Catalog\Api\ProductRepositoryInterface::class);
+            $options = $quoteItem->getOptions();
+            foreach ($options as $option) {
+                if ($option->getCode() === 'simple_product') {
+                    try {
+                        $product = $productRepository->getById($option->getProductId());
+                    } catch (\Exception $e) {
+
+                    }
+                }
+            }
+        }
+        return $product;
     }
 }
