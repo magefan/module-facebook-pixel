@@ -11,6 +11,7 @@ namespace Magefan\FacebookPixel\Block\Pixel;
 use Magefan\FacebookPixel\Api\ViewProductContentInterface;
 use Magefan\FacebookPixel\Block\AbstractPixel;
 use Magefan\FacebookPixel\Model\Config;
+use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Registry;
@@ -47,10 +48,12 @@ class ViewProductContent extends AbstractPixel
         Json $json,
         Registry $registry,
         ViewProductContentInterface $viewProductContent,
+        ProductRepositoryInterface $productRepository,
         array $data = []
     ) {
         $this->registry = $registry;
         $this->viewProductContent = $viewProductContent;
+                $this->productRepository = $productRepository;
         parent::__construct($context, $config, $json, $data);
     }
 
@@ -82,6 +85,14 @@ class ViewProductContent extends AbstractPixel
      */
     private function getCurrentProduct(): Product
     {
-        return $this->registry->registry('current_product');
+        $product = $this->registry->registry('current_product');
+        if ($productId = $this->_request->getParam('mfpreselect')) {
+            try {
+                $product = $this->productRepository->getById($productId);
+            } catch (NoSuchEntityException $e) {
+
+            }
+        }
+        return $product;
     }
 }

@@ -11,15 +11,23 @@ namespace Magefan\FacebookPixel\Model\Pixel\Cart;
 use Magefan\FacebookPixel\Api\Cart\ContentInterface;
 use Magefan\FacebookPixel\Model\AbstractPixel;
 use Magento\Quote\Model\Quote\Item;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Catalog\Api\ProductRepositoryInterface;
 
 class Content extends AbstractPixel implements ContentInterface
 {
+
+    /**
+     * @var ProductRepositoryInterface
+     */
+    protected $productRepository;
+
     /**
      * @inheritDoc
      */
     public function get(Item $quoteItem): array
     {
-        $product = $quoteItem->getProduct();
+        $product = $this->getProduct($quoteItem);
         return [
             /*
             'id' => ($this->config->getProductAttribute() == 'sku')
@@ -29,5 +37,46 @@ class Content extends AbstractPixel implements ContentInterface
             'id' => $product->getData($this->config->getProductAttribute()),
             'quantity' => $quoteItem->getQty() * 1
         ];
+    }
+
+    /**
+     * @param $quoteItem
+     * @return \Magento\Catalog\Api\Data\ProductInterface
+     */
+    /**
+     * @param $quoteItem
+     * @return \Magento\Catalog\Api\Data\ProductInterface
+     */
+    protected function getProduct($quoteItem)
+    {
+        $product = $quoteItem->getProduct();
+        if ('configurable' === $product->getTypeId()) {
+            $options = $quoteItem->getOptions();
+            if ($options) {
+                foreach ($options as $option) {
+                    if ($option->getCode() === 'simple_product') {
+                        try {
+                            $product = $this->getProductRepository()->getById($option->getProductId());
+                            break;
+                        } catch (NoSuchEntityException $e) {
+
+                        }
+                    }
+                }
+            }
+        }
+        return $product;
+    }
+
+    /**
+     * @return ProductRepositoryInterface
+     */
+    protected function getProductRepository(): ProductRepositoryInterface
+    {
+        if (null === $this->productRepository) {
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $this->productRepository = $objectManager->get(ProductRepositoryInterface::class);
+        }
+        return $this->productRepository ;
     }
 }
