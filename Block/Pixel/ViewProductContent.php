@@ -89,7 +89,7 @@ class ViewProductContent extends AbstractPixel
         if ($productId = $this->_request->getParam('mfpreselect')) {
             try {
                 $product = $this->productRepository->getById($productId);
-            } catch (\Exception $e) {
+            } catch (NoSuchEntityException $e) {
 
             }
         }
