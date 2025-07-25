@@ -50,6 +50,8 @@ class Purchase extends AbstractPixel implements PurchaseInterface
             $contents = [];
             $numItems = 0;
 
+            $this->setMfChildrenItem($order);
+
             foreach ($order->getAllVisibleItems() as $item) {
                 $contents[] = $this->content->get($item);
                 $numItems += $item->getQtyOrdered() * 1;
@@ -72,5 +74,23 @@ class Purchase extends AbstractPixel implements PurchaseInterface
         }
 
         return [];
+    }
+
+    /**
+     * @param $entity
+     * @return void
+     */
+    protected function setMfChildrenItem($entity)
+    {
+        foreach ($entity->getAllItems() as $childrenItem) {
+            if ($parentItemId = $childrenItem->getParentItemId()) {
+                foreach ($entity->getAllVisibleItems() as $parentItem) {
+                    if ($parentItem->getId() == $parentItemId) {
+                        $parentItem->setMfChildrenItem($childrenItem);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

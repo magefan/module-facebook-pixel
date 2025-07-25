@@ -27,7 +27,7 @@ class Content extends AbstractPixel implements ContentInterface
      */
     public function get(Item $quoteItem): array
     {
-        $product = $this->getProduct($quoteItem);
+        $product = $this->getItemProduct($quoteItem);
         return [
             /*
             'id' => ($this->config->getProductAttribute() == 'sku')
@@ -47,7 +47,7 @@ class Content extends AbstractPixel implements ContentInterface
      * @param $quoteItem
      * @return \Magento\Catalog\Api\Data\ProductInterface
      */
-    protected function getProduct($quoteItem)
+    protected function getItemProduct($quoteItem)
     {
         $product = $quoteItem->getProduct();
         if ('configurable' === $product->getTypeId()) {

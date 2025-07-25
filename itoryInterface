@@ -1,0 +1,89 @@
+[1mdiff --git a/Model/Pixel/Cart/Content.php b/Model/Pixel/Cart/Content.php[m
+[1mindex ea845d4..6c4b0b3 100644[m
+[1m--- a/Model/Pixel/Cart/Content.php[m
+[1m+++ b/Model/Pixel/Cart/Content.php[m
+[36m@@ -27,7 +27,7 @@[m [mclass Content extends AbstractPixel implements ContentInterface[m
+      */[m
+     public function get(Item $quoteItem): array[m
+     {[m
+[31m-        $product = $this->getProduct($quoteItem);[m
+[32m+[m[32m        $product = $this->getItemProduct($quoteItem);[m
+         return [[m
+             /*[m
+             'id' => ($this->config->getProductAttribute() == 'sku')[m
+[36m@@ -47,7 +47,7 @@[m [mclass Content extends AbstractPixel implements ContentInterface[m
+      * @param $quoteItem[m
+      * @return \Magento\Catalog\Api\Data\ProductInterface[m
+      */[m
+[31m-    protected function getProduct($quoteItem)[m
+[32m+[m[32m    protected function getItemProduct($quoteItem)[m
+     {[m
+         $product = $quoteItem->getProduct();[m
+         if ('configurable' === $product->getTypeId()) {[m
+[1mdiff --git a/Model/Pixel/Order/Content.php b/Model/Pixel/Order/Content.php[m
+[1mindex 50f0bf1..356454b 100644[m
+[1m--- a/Model/Pixel/Order/Content.php[m
+[1m+++ b/Model/Pixel/Order/Content.php[m
+[36m@@ -19,10 +19,25 @@[m [mclass Content extends AbstractPixel implements ContentInterface[m
+      */[m
+     public function get(OrderItemInterface $orderItem): array[m
+     {[m
+[31m-        $product = $orderItem->getProduct();[m
+[32m+[m[32m        $product = $this->getItemProduct($orderItem);[m
+         return [[m
+             'id' => $product->getData($this->config->getProductAttribute()),[m
+             'quantity' => $orderItem->getQtyOrdered() * 1[m
+         ];[m
+     }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * @param $orderItem[m
+[32m+[m[32m     * @return \Magento\Catalog\Api\Data\ProductInterface[m
+[32m+[m[32m     */[m
+[32m+[m[32m    protected function getItemProduct($orderItem)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        $product = $orderItem->getProduct();[m
+[32m+[m[32m        if ('configurable' === $product->getTypeId()) {[m
+[32m+[m[32m            if ($childItem = $orderItem->getMfChildrenItem()) {[m
+[32m+[m[32m                $product =  $childItem->getProduct();[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return $product;[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/Model/Pixel/Purchase.php b/Model/Pixel/Purchase.php[m
+[1mindex 268320f..40dca4c 100644[m
+[1m--- a/Model/Pixel/Purchase.php[m
+[1m+++ b/Model/Pixel/Purchase.php[m
+[36m@@ -50,6 +50,8 @@[m [mclass Purchase extends AbstractPixel implements PurchaseInterface[m
+             $contents = [];[m
+             $numItems = 0;[m
+ [m
+[32m+[m[32m            $this->setMfChildrenItem($order);[m
+[32m+[m
+             foreach ($order->getAllVisibleItems() as $item) {[m
+                 $contents[] = $this->content->get($item);[m
+                 $numItems += $item->getQtyOrdered() * 1;[m
+[36m@@ -73,4 +75,22 @@[m [mclass Purchase extends AbstractPixel implements PurchaseInterface[m
+ [m
+         return [];[m
+     }[m
+[32m+[m
+[32m+[m[32m    /**[m
+[32m+[m[32m     * @param $entity[m
+[32m+[m[32m     * @return void[m
+[32m+[m[32m     */[m
+[32m+[m[32m    protected function setMfChildrenItem($entity)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        foreach ($entity->getAllItems() as $childrenItem) {[m
+[32m+[m[32m            if ($parentItemId = $childrenItem->getParentItemId()) {[m
+[32m+[m[32m                foreach ($entity->getAllVisibleItems() as $parentItem) {[m
+[32m+[m[32m                    if ($parentItem->getId() == $parentItemId) {[m
+[32m+[m[32m                        $parentItem->setMfChildrenItem($childrenItem);[m
+[32m+[m[32m                        break;[m
+[32m+[m[32m                    }[m
+[32m+[m[32m                }[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+ }[m
