@@ -82,7 +82,8 @@ class Purchase extends AbstractPixel implements PurchaseInterface
      */
     protected function setMfChildrenItem($entity)
     {
-        foreach ($entity->getAllItems() as $childrenItem) {
+        // Use getItem, not getAllItems, to prevent some errors with the custom plugins
+        foreach ($entity->getItems() as $childrenItem) {
             if ($parentItemId = $childrenItem->getParentItemId()) {
                 foreach ($entity->getAllVisibleItems() as $parentItem) {
                     if ($parentItem->getId() == $parentItemId) {
