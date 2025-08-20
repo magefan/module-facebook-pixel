@@ -28,7 +28,7 @@ Track product performance, follow customers’ journey on checkout and use that 
   
 <a href="https://magefan.com/magento-2-facebook-pixel-extension/pricing">
           <img
-            src="https://cm.magefan.com/wysiwyg/products/magento-2-facebook-pixel-pricing.png"
+            src="https://cm.magefan.com/wysiwyg/products/facebook-pixel-pricing-plans.png"
             alt="Plans and Pricing for Magento 2 Facebook Pixel Extension" />
         </a>
 
