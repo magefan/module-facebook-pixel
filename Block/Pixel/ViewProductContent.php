@@ -28,6 +28,11 @@ class ViewProductContent extends AbstractPixel
     private $viewProductContent;
 
     /**
+     * @var ProductRepositoryInterface
+     */
+    private $productRepository;
+
+    /**
      * @var Registry
      */
     private $registry;
@@ -40,6 +45,7 @@ class ViewProductContent extends AbstractPixel
      * @param Json $json
      * @param Registry $registry
      * @param ViewProductContentInterface $viewProductContent
+     * @param ProductRepositoryInterface $productRepository
      * @param array $data
      */
     public function __construct(
@@ -53,7 +59,7 @@ class ViewProductContent extends AbstractPixel
     ) {
         $this->registry = $registry;
         $this->viewProductContent = $viewProductContent;
-                $this->productRepository = $productRepository;
+        $this->productRepository = $productRepository;
         parent::__construct($context, $config, $json, $data);
     }
 
