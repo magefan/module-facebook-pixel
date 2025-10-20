@@ -31,7 +31,7 @@ $script = '';
         let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data) ? customerData.mf_fb_pixel_customer_data : {};
 
         fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
-        fbq('track', 'PageView', {}, {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now(), 'event_source_url': window.location.href, 'referrer_url': document.referrer});
+        fbq('track', 'PageView', {}, {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now(), 'currency': '" . $block->getCurrentCurrencyCode() . "','event_source_url': window.location.href, 'referrer_url': document.referrer});
         var triedToLoadPixel = false;
     ";
 

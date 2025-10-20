@@ -77,6 +77,17 @@ class Pixel extends Template
     }
 
     /**
+     * Get current currency code
+     *
+     * @return string
+     * @throws NoSuchEntityException
+     */
+    public function getCurrentCurrencyCode(): string
+    {
+        return $this->_storeManager->getStore()->getCurrentCurrencyCode();
+    }
+
+    /**
      * Init FB pixel
      *
      * @return string
