@@ -43,10 +43,6 @@ class Content extends AbstractPixel implements ContentInterface
      * @param $quoteItem
      * @return \Magento\Catalog\Api\Data\ProductInterface
      */
-    /**
-     * @param $quoteItem
-     * @return \Magento\Catalog\Api\Data\ProductInterface
-     */
     protected function getItemProduct($quoteItem)
     {
         $product = $quoteItem->getProduct();
