@@ -40,10 +40,12 @@ class Content extends AbstractPixel implements ContentInterface
     }
 
     /**
-     * @param $quoteItem
+     * Get product from quote item
+     *
+     * @param Item $quoteItem
      * @return \Magento\Catalog\Api\Data\ProductInterface
      */
-    protected function getItemProduct($quoteItem)
+    protected function getItemProduct(Item $quoteItem)
     {
         $product = $quoteItem->getProduct();
         if ('configurable' === $product->getTypeId()) {
@@ -54,6 +56,7 @@ class Content extends AbstractPixel implements ContentInterface
                         try {
                             $product = $this->getProductRepository()->getById($option->getProductId());
                             break;
+                        // phpcs:ignore Magento2.CodeAnalysis.EmptyBlock.DetectedCatch
                         } catch (NoSuchEntityException $e) {
 
                         }
@@ -65,6 +68,8 @@ class Content extends AbstractPixel implements ContentInterface
     }
 
     /**
+     * Get product repository instance
+     *
      * @return ProductRepositoryInterface
      */
     protected function getProductRepository(): ProductRepositoryInterface
