@@ -27,10 +27,12 @@ class Content extends AbstractPixel implements ContentInterface
     }
 
     /**
-     * @param $orderItem
+     * Get product from order item
+     *
+     * @param OrderItemInterface $orderItem
      * @return \Magento\Catalog\Api\Data\ProductInterface
      */
-    protected function getItemProduct($orderItem)
+    protected function getItemProduct(OrderItemInterface $orderItem)
     {
         $product = $orderItem->getProduct();
         if ('configurable' === $product->getTypeId()) {

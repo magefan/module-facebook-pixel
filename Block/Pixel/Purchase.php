@@ -76,6 +76,8 @@ class Purchase extends AbstractPixel
     }
 
     /**
+     * Get current order
+     *
      * @return \Magento\Sales\Model\Order
      */
     protected function getOrder()

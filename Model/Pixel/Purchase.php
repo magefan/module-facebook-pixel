@@ -77,10 +77,12 @@ class Purchase extends AbstractPixel implements PurchaseInterface
     }
 
     /**
-     * @param $entity
+     * Set mf_children_item for each item
+     *
+     * @param Order $entity
      * @return void
      */
-    protected function setMfChildrenItem($entity)
+    protected function setMfChildrenItem(Order $entity)
     {
         // Use getItem, not getAllItems, to prevent some errors with the custom plugins
         foreach ($entity->getItems() as $childrenItem) {

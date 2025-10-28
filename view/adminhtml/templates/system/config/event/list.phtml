@@ -41,9 +41,14 @@ $eventsExtra = [
     </ul>
     <p <?php if (!$block->isPlusEnabled()) { ?>style="color: #eb5202"<?php } ?>>
         <strong>
-            <?= $escaper->escapeHtml(__(!$block->isPlusEnabled() ? 'Available in FB Pixel Plus Only' : 'FB Pixel Plus')) ?>
+            <?= $escaper->escapeHtml(__(!$block->isPlusEnabled()
+                    ? 'Available in FB Pixel Plus Only'
+                    : 'FB Pixel Plus')) ?>
             <?php if (!$block->isPlusEnabled()) { ?>
-                (<a style="color: #eb5202; text-decoration: underline;" href="https://magefan.com/magento-2-facebook-pixel/pricing" target="_blank">Read more</a>):
+                (<a style="color: #eb5202; text-decoration: underline;"
+                    href="https://magefan.com/magento-2-facebook-pixel/pricing" target="_blank">
+                    Read more
+                </a>):
             <?php } ?>
         </strong>
     </p>
@@ -60,7 +65,10 @@ $eventsExtra = [
                 __(!$block->isExtraEnabled() ? 'Available in FB Pixel Extra Only' : 'FB Pixel Extra')
             ) ?>
             <?php if (!$block->isExtraEnabled()) { ?>
-                (<a style="color: #eb5202; text-decoration: underline;" href="https://magefan.com/magento-2-facebook-pixel/pricing" target="_blank">Read more</a>):
+                (<a style="color: #eb5202; text-decoration: underline;"
+                    href="https://magefan.com/magento-2-facebook-pixel/pricing" target="_blank">
+                    Read more
+                </a>):
             <?php } ?>
         </strong>
     </p>

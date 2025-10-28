@@ -12,6 +12,8 @@ class InfoConversionApi extends InfoPlan
 {
 
     /**
+     * Get min plan name
+     *
      * @return string
      */
     protected function getMinPlan(): string
@@ -20,6 +22,8 @@ class InfoConversionApi extends InfoPlan
     }
 
     /**
+     * Get section id
+     *
      * @return string
      */
     protected function getSectionId(): string
@@ -28,6 +32,8 @@ class InfoConversionApi extends InfoPlan
     }
 
     /**
+     * Get section text
+     *
      * @return string
      */
     protected function getText(): string
