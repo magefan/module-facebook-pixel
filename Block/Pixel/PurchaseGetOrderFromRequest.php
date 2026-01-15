@@ -11,6 +11,8 @@ namespace Magefan\FacebookPixel\Block\Pixel;
 class PurchaseGetOrderFromRequest extends Purchase
 {
     /**
+     * Get order
+     *
      * @return \Magento\Sales\Model\Order|null
      */
     protected function getOrder()
@@ -24,6 +26,8 @@ class PurchaseGetOrderFromRequest extends Purchase
     }
 
     /**
+     * Get order factory
+     *
      * @return mixed
      */
     protected function getOrderFactory()
@@ -33,6 +37,8 @@ class PurchaseGetOrderFromRequest extends Purchase
     }
 
     /**
+     * Get order id
+     *
      * @return string
      */
     protected function getOrderId()

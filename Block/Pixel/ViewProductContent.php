@@ -95,6 +95,7 @@ class ViewProductContent extends AbstractPixel
         if ($productId = $this->_request->getParam('mfpreselect')) {
             try {
                 $product = $this->productRepository->getById($productId);
+            // phpcs:ignore Magento2.CodeAnalysis.EmptyBlock.DetectedCatch
             } catch (NoSuchEntityException $e) {
 
             }

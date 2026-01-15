@@ -51,6 +51,8 @@ class AbstractPixel
      * @param Config $config
      * @param StoreManagerInterface $storeManager
      * @param CategoryRepositoryInterface $categoryRepository
+     * @param RequestInterface|null $request
+     * @param Registry|null $registry
      */
     public function __construct(
         Config $config,

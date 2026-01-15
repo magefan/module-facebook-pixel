@@ -85,12 +85,12 @@ class Config
         return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_PRODUCT, $storeId));
     }
 
-    /*
-    * Retrieve Magento product categories
-    *
-    * @param string|null $storeId
-    * @return string
-    */
+    /**
+     * Retrieve Magento category attribute
+     *
+     * @param string|null $storeId
+     * @return string
+     */
     public function getCategoriesAttribute(?string $storeId = null): string
     {
         return trim((string)$this->getConfig(self::XML_PATH_ATTRIBUTES_CATEGORIES, $storeId));
