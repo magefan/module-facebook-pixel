@@ -76,7 +76,7 @@ abstract class InfoPlan extends \Magefan\Community\Block\Adminhtml\System\Config
                                         text: "Upgrade Plan Now",
                                         class: "action primary accept",
                                         click: function () {
-                                            var url = "http://magefan.loc/magento-2-facebook-pixel-extension/pricing?"
+                                            var url = "https://magefan.com/magento-2-facebook-pixel-extension/pricing?"
                                                     + "utm_source=admin&utm_medium=config&utm_campaign=upgrade-popup";
                                             window.open(url);
                                         }
