@@ -176,6 +176,6 @@ class AbstractPixel
     {
         $priceInfo = $product->getPriceInfo()->getPrice('final_price')->getAmount();
         $price = $priceInfo->getValue();
-        return $this->formatPrice($price);
+        return $this->formatPrice((float)$price);
     }
 }
