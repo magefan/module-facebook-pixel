@@ -21,6 +21,7 @@
             <attributes>
                 <product>sku</product>
                 <categories/>
+                <display_product_price_for>all</display_product_price_for>
             </attributes>
             <page_speed_optimization>
                 <enabled>1</enabled>

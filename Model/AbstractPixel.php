@@ -174,6 +174,10 @@ class AbstractPixel
      */
     protected function getPrice(Product $product): float
     {
+        if (!$this->config->isCustomerGroupAllowedToSeeProductPrice()) {
+            return 0.0;
+        }
+
         $priceInfo = $product->getPriceInfo()->getPrice('final_price')->getAmount();
         $price = $priceInfo->getValue();
         return $this->formatPrice($price);
