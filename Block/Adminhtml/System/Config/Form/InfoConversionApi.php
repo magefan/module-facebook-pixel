@@ -34,10 +34,10 @@ class InfoConversionApi extends InfoPlan
     /**
      * Get section text
      *
-     * @return string
+     * @return \Magento\Framework\Phrase
      */
     protected function getText(): string
     {
-        return 'Conversion API is available in <strong>Extra</strong> plans only.';
+        return (string)__('Conversion API is available in <strong>Extra</strong> plans only.');
     }
 }

@@ -64,16 +64,16 @@ abstract class InfoPlan extends \Magefan\Community\Block\Adminhtml\System\Config
                             $(this).data("fpdisabled", 1);
                             $(this).click(function(){
                                 alert({
-                                    title: "You cannot change this option.",
+                                    title: "' . __("You cannot change this option.") . '",
                                     content: "' .
                                     (
                                         ($this->getMinPlan() == 'Extra')
-                                        ? 'This option is available in <strong>Extra</strong> plan only.'
-                                        : 'This option is available in <strong>Plus or Extra</strong> plans only.'
+                                        ? __('This option is available in <strong>Extra</strong> plan only.')
+                                        : __('This option is available in <strong>Plus or Extra</strong> plans only.')
                                     )
                                     . '",
                                     buttons: [{
-                                        text: "Upgrade Plan Now",
+                                        text: "' . __('Upgrade Plan Now') . '",
                                         class: "action primary accept",
                                         click: function () {
                                             var url = "https://magefan.com/magento-2-google-tag-manager/pricing?"
