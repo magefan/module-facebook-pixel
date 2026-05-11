@@ -34,7 +34,7 @@ class InfoConversionApi extends InfoPlan
     /**
      * Get section text
      *
-     * @return \Magento\Framework\Phrase
+     * @return string
      */
     protected function getText(): string
     {
