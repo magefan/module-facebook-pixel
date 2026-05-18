@@ -26,51 +26,49 @@ $script = '';
         if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
         n.queue=[];
         f.mfFbq = 1;
-        
-        let customerData = localStorage.getItem('mage-cache-storage') 
-                    ? JSON.parse(localStorage.getItem('mage-cache-storage')).customer 
+
+        let customerData = localStorage.getItem('mage-cache-storage')
+                    ? JSON.parse(localStorage.getItem('mage-cache-storage')).customer
                     : false;
-        let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data) 
+        let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data)
                     ? customerData.mf_fb_pixel_customer_data : {};
 
         fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
-        fbq('track', 'PageView', {}, 
-        {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now(), 
+        fbq('track', 'PageView', {},
+        {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now(),
         'currency': '" . $block->getCurrentCurrencyCode() . "',
         'event_source_url': window.location.href, 'referrer_url': document.referrer});
-        var triedToLoadPixel = false;
     ";
 
 
 if ($block->isSpeedOptimizationEnabled() && $block->getRequest()->getModuleName() !== 'checkout') {
     $script .= "
-            var actionDetected = false;
-            document.addEventListener('scroll', initMfFbPixel);
-            document.addEventListener('mousemove', initMfFbPixel);
-            document.addEventListener('touchstart', initMfFbPixel);
-            function initMfFbPixel()
+            document.addEventListener('scroll', mfFbUserActionDetect);
+            document.addEventListener('mousemove', mfFbUserActionDetect);
+            document.addEventListener('touchstart', mfFbUserActionDetect);
+            function mfFbUserActionDetect()
             {
-                if (actionDetected) return false;
-                document.removeEventListener('scroll', initMfFbPixel);
-                document.removeEventListener('mousemove', initMfFbPixel);
-                document.removeEventListener('touchstart', initMfFbPixel);
-                actionDetected = true;
-
-                if (triedToLoadPixel) {
-                    mfLoadFbPixel();
-                }
-            };
+                document.removeEventListener('scroll', mfFbUserActionDetect);
+                document.removeEventListener('mousemove', mfFbUserActionDetect);
+                document.removeEventListener('touchstart', mfFbUserActionDetect);
+                window.mfFbUserActionDetected = true;
+                mfLoadFbPixel();
+            }
         ";
 } else {
     $script .= "
-            var actionDetected = true;
+            window.mfFbUserActionDetected = true;
         ";
 }
 
     $script .= "
         function mfLoadFbPixel() {
-            triedToLoadPixel = true;
-            if (!actionDetected) return false;
+            if (!window.mfFbUserActionDetected) return false;
+            if (!window.mfFbLoadBeforeCookieAllowed && !window.mfFbUserCookiesAllowed) return false;
+
+            if (window.mfFBPtriedToLoadPixel) return;
+            window.mfFBPtriedToLoadPixel = true;
+
             !function(f,b,e,v,n,t,s){
                 if (f.fbq && !f.mfFbq) return;
                 t=b.createElement(e);t.async=!0;
@@ -90,11 +88,13 @@ if ($block->isProtectCustomerDataEnabled()) {
     $script .= "
         document.addEventListener('DOMContentLoaded', function () {
             if (MagefanJs.isCustomerConsentProvided()) {
+                window.mfFbUserCookiesAllowed = true;
                 mfLoadFbPixel();
             } else {
                 let interval = setInterval(function () {
                     if (!MagefanJs.isCustomerConsentProvided()) return;
                     clearInterval(interval);
+                    window.mfFbUserCookiesAllowed = true;
                     mfLoadFbPixel();
                 }, 1000);
             }
@@ -102,6 +102,7 @@ if ($block->isProtectCustomerDataEnabled()) {
         ";
 } else {
     $script .= "
+            window.mfFbLoadBeforeCookieAllowed = true;
             mfLoadFbPixel();
         ";
 }
