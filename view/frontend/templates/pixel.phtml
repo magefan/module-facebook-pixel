@@ -1,0 +1,113 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+/** @var \Magefan\FacebookPixel\Block\Pixel $block */
+/** @var \Magento\Framework\Escaper $escaper */
+/** @var Magefan\Community\View\Helper\SecureHtmlRenderer $mfSecureRenderer */
+?>
+<?php
+if (!isset($escaper)) {
+    /* Compatability fix for old Magento versions */
+    $escaper = $block;
+}
+
+$script = '';
+?>
+<?php
+    $script .= "
+    !function(f,n){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments);
+            var ce = new CustomEvent('mf_fbq', {detail: arguments});
+            document.dispatchEvent(ce);
+        };
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];
+        f.mfFbq = 1;
+        
+        let customerData = localStorage.getItem('mage-cache-storage') 
+                    ? JSON.parse(localStorage.getItem('mage-cache-storage')).customer 
+                    : false;
+        let advancedMatching = (customerData && customerData.mf_fb_pixel_customer_data) 
+                    ? customerData.mf_fb_pixel_customer_data : {};
+
+        fbq('init', '{$escaper->escapeHtml($block->getFbPixelId())}', advancedMatching);
+        fbq('track', 'PageView', {}, 
+        {'eventID': 'PageView' + '.' + Math.floor(Math.random() * 1000000) + '.' + Date.now(), 
+        'currency': '" . $block->getCurrentCurrencyCode() . "',
+        'event_source_url': window.location.href, 'referrer_url': document.referrer});
+        var triedToLoadPixel = false;
+    ";
+
+
+if ($block->isSpeedOptimizationEnabled() && $block->getRequest()->getModuleName() !== 'checkout') {
+    $script .= "
+            var actionDetected = false;
+            document.addEventListener('scroll', initMfFbPixel);
+            document.addEventListener('mousemove', initMfFbPixel);
+            document.addEventListener('touchstart', initMfFbPixel);
+            function initMfFbPixel()
+            {
+                if (actionDetected) return false;
+                document.removeEventListener('scroll', initMfFbPixel);
+                document.removeEventListener('mousemove', initMfFbPixel);
+                document.removeEventListener('touchstart', initMfFbPixel);
+                actionDetected = true;
+
+                if (triedToLoadPixel) {
+                    mfLoadFbPixel();
+                }
+            };
+        ";
+} else {
+    $script .= "
+            var actionDetected = true;
+        ";
+}
+
+    $script .= "
+        function mfLoadFbPixel() {
+            triedToLoadPixel = true;
+            if (!actionDetected) return false;
+            !function(f,b,e,v,n,t,s){
+                if (f.fbq && !f.mfFbq) return;
+                t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        }
+    ";
+
+
+if ($block->isProtectCustomerDataEnabled()) {
+    echo $block->getLayout()->createBlock(\Magefan\Community\Block\JsScript::class)
+        ->setMethod('isCustomerConsentProvided')
+        ->setScriptAttributes(['data-rocketjavascript' => 'false'])
+        ->toHtml();
+
+    $script .= "
+        document.addEventListener('DOMContentLoaded', function () {
+            if (MagefanJs.isCustomerConsentProvided()) {
+                mfLoadFbPixel();
+            } else {
+                let interval = setInterval(function () {
+                    if (!MagefanJs.isCustomerConsentProvided()) return;
+                    clearInterval(interval);
+                    mfLoadFbPixel();
+                }, 1000);
+            }
+        });
+        ";
+} else {
+    $script .= "
+            mfLoadFbPixel();
+        ";
+}
+
+    $script .= "
+        }(window);
+    ";
+?>
+<?= /* @noEscape */ $mfSecureRenderer->renderTag('script', [], $script, false) ?>

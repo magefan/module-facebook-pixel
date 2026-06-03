@@ -1,0 +1,24 @@
+{
+    "name": "magefan/module-facebook-pixel",
+    "description": "Facebook Pixel for Magento 2",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Magefan",
+            "email": "support@magefan.com"
+        }
+    ],
+    "version": "2.7.2",
+    "require": {
+        "magefan/module-community" : ">=2.3.3"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magefan\\FacebookPixel\\": ""
+        }
+    }
+}

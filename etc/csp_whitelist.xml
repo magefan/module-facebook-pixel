@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="mf-fbpx-facebook-com" type="host">*.facebook.com</value>
+                <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="mf-fbpx-facebook-com" type="host">*.facebook.com</value>
+                <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="mf-fbpx-facebook-com" type="host">*.facebook.com</value>
+                <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="mf-fbpx-facebook-com" type="host">*.facebook.com</value>
+                <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
+            </values>
+        </policy>
+        <policy id="form-action">
+            <values>
+                <value id="mf-fbpx-facebook-com" type="host">*.facebook.com</value>
+                <value id="mf-fbpx-facebook-net" type="host">*.facebook.net</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
