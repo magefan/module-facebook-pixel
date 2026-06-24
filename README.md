@@ -4,7 +4,7 @@
 
 <img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/28b407cef1668fd0bdd6f36db3e8e2f0/i/c/icon-facebook-pixel.jpg">
 
-[Magento 2 Facebook Pixel](https://magefan.com/magento-2-facebook-pixel-extension) Extension is a data tracking and integration tool for Magento that allows merchants to track customer behavior and conversions from Facebook Ads accurately. It connects your store with Facebook Pixel and Facebook Conversion API without any coding and sends important events like product views, add-to-cart actions, and completed purchases to Meta Ads Manager.
+[Magento 2 Facebook Pixel](https://magefan.com/magento-2-facebook-pixel-extension) Extension by Magefan is a data tracking and integration tool for Magento that allows merchants to track customer behavior and conversions from Facebook Ads accurately. It connects your store with Facebook Pixel and Facebook Conversion API without any coding and sends important events like product views, add-to-cart actions, and completed purchases to Meta Ads Manager.
 
 Magefan Facebook Pixel Extension ensures proper data tracking with compliance to GDPR and all major data regulation laws. It deffers pixel loading to make sure your store stays fast and reliable.
 
@@ -125,6 +125,152 @@ Magento 2 Facebook Pixel Extension comes with the speed optimization option. It 
 Do you manage a multi-language store and want to retarget visitors from each store view? Easy. You simply need to create multiple Facebook Pixel IDs and use them for different store views. 
 
 Facebook Pixel Extension for Magento will use it to help you collect data on each store view. Create not only personalized Facebook ads, but localize them for the ultimate user experience.
+
+## Magefan Facebook Pixel Attributes and Parameters
+Magefan Facebook Pixel extension fires the official Meta (Facebook) Pixel standard events with rich content and commerce parameters and hashed Advanced Matching, along with server-side Conversions API mirroring. So you can track your Magento store in Meta Ads with no code editing.
+
+> **Plans:**
+> Each variable and event is marked with * to specify the plan in which specific data is available. 
+> * *FacebookPixel (Basic)
+> * **  FacebookPixelPlus (Plus)
+> * *** FacebookPixelExtra (Extra)
+
+### Triggered Events - Per Page
+
+#### All Page Events
+
+* PageView*
+* advancedMatching**
+
+#### Home Page (cms_index_index)
+
+* PageView*
+
+#### Category Page (catalog_category_view)
+
+* PageView*
+* ViewCategory**
+
+#### Product Page (catalog_product_view)
+
+* PageView*
+* ViewContent*
+* ViewCategory**
+* AddToCart**
+* AddToWishlist**
+* CustomizeProduct***
+
+#### Shopping Cart Page  (checkout_cart_index)
+
+* PageView*
+* view_cart*
+* AddToCart**
+
+Checkout Page  (checkout_index_index)
+
+* PageView*
+* InitiateCheckout*
+* AddPaymentInfo**
+
+Order Confirmation Page  (checkout_onepage_success)
+
+* PageView*
+* Purchase*
+
+Other Events
+
+* Search***
+* CompleteRegistration***
+* Contact***
+
+### Pixel Parameters (by entity)
+
+#### Every Page
+Trigger: present on every event event
+
+* eventID
+* event_source_url
+* referrer_url
+
+#### Advanced Matching
+Trigger: attached to fbq('init') and events  (Plus, PII SHA-256 hashed)
+* em** (email)
+* fn** (first name)
+* ln** (last name)
+* ph** (phone)
+* db** (date of birth)
+* ge** (gender)
+* ct** (city)
+* st** (region / state)
+* zp** (postcode)
+* country**
+* external_id** (hashed email)
+
+#### Product
+Trigger: event equals ViewContent
+
+* content_ids*
+* content_category*
+* content_name*
+* content_type* ('product')
+* contents[]* (id, quantity)
+* currency*
+* value*
+
+#### Product List
+Trigger: event equals ViewCategory
+
+* content_name**
+* content_ids**
+* content_type** ('product_list')
+* currency**
+
+#### Cart
+Trigger: event equals AddToCart
+
+* content_ids**
+* content_name**
+* content_type** ('product')
+* contents[]** (id, quantity)
+* currency**
+* value**
+
+#### Wishlist
+Trigger: event equals AddToWishlist
+
+* content_ids**
+* content_category**
+* content_name**
+* contents[]** (id, quantity)
+* currency**
+* value**
+
+#### Checkout
+Trigger: event equals InitiateCheckout, AddPaymentInfo
+
+* content_ids*
+* content_name* ('Checkout')
+* contents[]* (id, quantity)
+* currency*
+* num_items*
+* value*
+
+#### Order
+Trigger: event equals Purchase
+
+* content_ids*
+* content_name* ('Purchase')
+* content_type* ('product')
+* contents[]* (id, quantity)
+* currency*
+* num_items*
+* value*
+
+#### Search
+Trigger: event equals Search
+
+* search_string***
+* currency***
 
 ## Frequently Asked Questions about Facebook Pixel in Magento
 ### What is Facebook Pixel?
