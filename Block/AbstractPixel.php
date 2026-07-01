@@ -83,8 +83,8 @@ abstract class AbstractPixel extends AbstractBlock
                     fbq("' . $this->getTrackMethod() . '", '
                         . $this->json->serialize($eventName) . ', '
                         . $this->json->serialize($parameters) . ', '
-                        . '{ "eventID": "' . $eventName
-                        . '" + "." + Math.floor(Math.random() * 1000000) + "."'
+                        . '{ "eventID": ' . $this->json->serialize($eventName)
+                        . ' + "." + Math.floor(Math.random() * 1000000) + "."'
                         . ' + Date.now(), "event_source_url": window.location.href, "referrer_url": document.referrer }'
                     . ');
                 ';
