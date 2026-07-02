@@ -35,7 +35,7 @@ class Content extends AbstractPixel implements ContentInterface
     protected function getItemProduct(OrderItemInterface $orderItem)
     {
         $product = $orderItem->getProduct();
-        if ('configurable' === $product->getTypeId()) {
+        if ($product && 'configurable' === $product->getTypeId()) {
             if ($childItem = $orderItem->getMfChildrenItem()) {
                 $product =  $childItem->getProduct();
             }
