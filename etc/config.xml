@@ -11,7 +11,6 @@
             <general>
                 <enabled>0</enabled>
                 <mfmodule>FacebookPixel</mfmodule>
-                <mftype>1</mftype>
                 <fb_pixel_id/>
             </general>
             <conversion_api>
