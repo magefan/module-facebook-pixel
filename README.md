@@ -10,6 +10,10 @@ Magefan Facebook Pixel Extension ensures proper data tracking with compliance to
 
 Enable Facebook Pixel tracking in Magento 2 and start collecting reliable marketing data to improve ad performance.
 
+
+> **Notes:**
+>  * **ATTENTION!** Facebook Pixel Basic has become paid for Magento Open Source. Latest free version for Magento Open Source is Facebook Pixel v2.7.2.
+
 <a href="https://magefan.com/blog/join-our-donations"><img  align="right" width="120" height="70" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg"></a>
 
 <a href="https://magefan.com/magento-2-facebook-pixel-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a>
@@ -52,7 +56,7 @@ More advanced plans include more checkout and cart events. Server side tracking 
   
 <a href="https://magefan.com/magento-2-facebook-pixel-extension/pricing">
           <img
-            src="https://cm.magefan.com/wysiwyg/products/facebook-pixel-pricing-plans.png"
+            src="https://cm.magefan.com/wysiwyg/products/facebook-pixel-pricing-plans-magefan.png"
             alt="Plans and Pricing for Magento 2 Facebook Pixel Extension" />
         </a>
 
