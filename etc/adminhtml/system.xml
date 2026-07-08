@@ -52,6 +52,22 @@
                         <field id="enabled">1</field>
                     </depends>
                 </field>
+                <field id="test_mode_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[When enabled, all Conversions API events are sent with the test code below and appear in the Meta Events Manager → Test Events tab. <strong>Disable in production.</strong>]]></comment>
+                </field>
+                <field id="test_event_code" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test Event Code</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="test_mode_enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Copy the test code from Meta Events Manager → Test Events tab (e.g. <strong>TEST62937</strong>).]]></comment>
+                </field>
             </group>
             <group id="attributes" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Product Attributes Mapping</label>
