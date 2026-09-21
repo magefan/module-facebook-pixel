@@ -1,4 +1,4 @@
-# [Magento 2 Facebook Pixel Extension](https://magefan.com/magento-2-facebook-pixel-extension) | Track Facebook & Meta Ads Conversions
+# [Magento 2 Facebook Pixel Extension](https://magefan.com/magento-2-facebook-pixel-extension) by Magefan
 [![Total Downloads](https://poser.pugx.org/magefan/module-facebook-pixel/downloads)](https://packagist.org/packages/magefan/module-facebook-pixel)
 [![Latest Stable Version](https://poser.pugx.org/magefan/module-facebook-pixel/v/stable)](https://packagist.org/packages/magefan/module-facebook-pixel)
 
