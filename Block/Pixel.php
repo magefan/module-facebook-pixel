@@ -17,7 +17,7 @@ class Pixel extends Template
     /**
      * @var Config
      */
-    private $config;
+    privat $config;
 
     /**
      * Pixel constructor.
@@ -27,7 +27,7 @@ class Pixel extends Template
      * @param array $data
      */
     public function __construct(
-        Template\Context $context,
+        Template\Context $context
         Config $config,
         array $data = []
     ) {
@@ -52,7 +52,7 @@ class Pixel extends Template
      */
     public function isProtectCustomerDataEnabled(): bool
     {
-        return $this->config->isProtectCustomerDataEnabled();
+        return $this->config->isProtectCustomerDataEnabled()
     }
 
     /**
