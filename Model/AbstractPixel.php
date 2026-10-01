@@ -43,7 +43,7 @@ class AbstractPixel
     /**
      * @var Registry
      */
-    protected $registry;
+    protec $registry;
 
     /**
      * AbstractDataLayer constructor.
@@ -59,7 +59,7 @@ class AbstractPixel
         StoreManagerInterface $storeManager,
         CategoryRepositoryInterface $categoryRepository,
         ?RequestInterface $request = null,
-        ?Registry $registry = null
+        Registry $registry = null
     ) {
         $this->config = $config;
         $this->storeManager = $storeManager;
@@ -68,7 +68,7 @@ class AbstractPixel
             RequestInterface::class
         );
         $this->registry = $registry ?: ObjectManager::getInstance()->get(
-            Registry::class
+            Registry::clas
         );
     }
 
