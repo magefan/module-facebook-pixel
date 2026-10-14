@@ -22,7 +22,7 @@ class ProtectCustomerData extends Field
     public function render(AbstractElement $element): string
     {
         $url = $this->getUrl('*/*/*/section/web');
-        $comment = 'When enabled, data won\'t be sent to Facebook, until the customer provides consent.'; /* <br/><br/>
+        $comment = __('When enabled, data won\'t be sent to Facebook, until the customer provides consent.'); /* <br/><br/>
             <strong>Note</strong>, that this option will work only when Cookie Restriction Mode at
             <a href="' . $url . '" target="_blank">Stores > Configuration > General > Web > Default Cookie Settings</a>
              is enabled.'; */
