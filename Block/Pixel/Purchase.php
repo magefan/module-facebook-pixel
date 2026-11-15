@@ -62,6 +62,10 @@ class Purchase extends AbstractPixel
     protected function getParameters(): array
     {
         $order = $this->getOrder();
+        if (!$order) {
+            return [];
+        }
+
         return $this->purchase->get($order);
     }
 
@@ -78,7 +82,7 @@ class Purchase extends AbstractPixel
     /**
      * Get current order
      *
-     * @return \Magento\Sales\Model\Order
+     * @return \Magento\Sales\Model\Order|null
      */
     protected function getOrder()
     {
